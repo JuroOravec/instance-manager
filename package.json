@@ -1,0 +1,37 @@
+{
+  "name": "instance-manager",
+  "version": "1.0.0",
+  "description": "Package for tracking dynamically created classes and their instances.",
+  "homepage": "https://github.com/JuroOravec/instance-manager#readme",
+  "bugs": "https://github.com/JuroOravec/instance-manager/issues",
+  "repository": "github:JuroOravec/instance-manager",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src"
+  },
+  "keywords": [],
+  "author": "Juro Oravec",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "jest": "^25.2.7",
+    "prettier": "^2.0.3",
+    "ts-jest": "^25.3.1",
+    "tsc": "^1.20150623.0",
+    "tslint": "^6.1.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {}
+}

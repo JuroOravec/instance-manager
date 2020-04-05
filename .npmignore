@@ -1,0 +1,6 @@
+.gitignore
+.travis.yml
+tsconfig.json
+.vscode
+tslint.json
+.prettierrc
