@@ -6,7 +6,7 @@ install:
 before_script:
   - npm run build
 after_success:
-  - codecov:upload
+  - npm run codecov:upload
 deploy:
   provider: npm
   email:
