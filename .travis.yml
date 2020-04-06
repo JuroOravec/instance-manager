@@ -1,3 +1,11 @@
+sudo: false
+
+branches:
+  only:
+    - master
+    - staging
+    # optionally also tagged branches: https://github.com/archivematica/Issues/issues/541#issuecomment-471396547
+
 language: node_js
 node_js:
   - 10
@@ -18,3 +26,7 @@ deploy:
     repo: JuroOravec/instance-manager
 env:
   - CI=true
+
+notifications:
+  email:
+    on_success: never
