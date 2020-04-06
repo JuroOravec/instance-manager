@@ -1,3 +1,10 @@
+language: node_js
+node_js:
+  - 10
+scripts:
+  - npm install codecov -g
+after_success:
+  - codecov:upload
 deploy:
   provider: npm
   email: juraj.oravec.josefson@gmail.com
