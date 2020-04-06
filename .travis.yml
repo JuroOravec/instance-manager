@@ -1,8 +1,9 @@
 language: node_js
 node_js:
   - 10
-scripts:
-  - npm install codecov -g
+before_script:
+  - npm run setup
+  - npm run build
 after_success:
   - codecov:upload
 deploy:

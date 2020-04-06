@@ -6,3 +6,4 @@ tslint.json
 .prettierrc
 .env*
 __tests__/**/*
+docs/
