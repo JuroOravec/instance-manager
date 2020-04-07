@@ -2,30 +2,49 @@ sudo: false
 
 branches:
   only:
-    - master
-    - staging
+    - dev
+    # - master
+    # - staging
     # optionally also tagged branches: https://github.com/archivematica/Issues/issues/541#issuecomment-471396547
 
 language: node_js
 node_js:
-  - 10
+  - '10'
+  - '11'
+  - '12'
+  - '13'
+
 install:
-  - npm run setup
+  - npm install
 before_script:
-  - npm run build
-after_success:
-  - npm run codecov:upload
-deploy:
-  provider: npm
-  email:
-    secure: DBwDtMDafDtPUAdPfmKom+PnFwJxCXq351nxxrhC9vVkBK6Dy8vaSEkpSy0aOX7j9ndOeiOe+aRZgfbO2vEUSl1I9N6ahH5KiiNIpSBtUxm4WaAaCpfyr3kb7bSztIpEjpr1mb/JdWKzC7JFoFt5mUPPVCmVSR3hBEmQGLUrZtcLXhfgszDkztJoG5j1EzhOfvacJoPadT/3m1uV4ui9nki6u+hIt/wTIoRSlwRkAjHxy6JooGgzkn8TYk+9SF4QmJDP47x1eDVzfbGRGd7CrBD64tOTTZ1BssgfW59DRuupW1holqCmKYzQtSi+NnoPsM2Ibtc9Lk+rbyuGTiwI/xVPNntMsfqFyf265sC4oHZB9FZoxQxn/4fPJegmJBfdTOt1DLK4+3A1w6QNOnVXE7NB6ROOlVhVxJmAVsKNxDGyV13Xq03gf5NRfz8XChZ8KtSlxhQKx4+lli4CBvXfHnX1wwHjgTOslYl7NU86BiRaLM6JRbaZijTfsyaKmA9vhtQ5+Dgl2paKlIYNfWFcquE6yVvSg4rm3ytBgU90bZ3RiVJgbDB3ziw8x4tsp3r+9LVqWye51uIQVX2lBcB6Wr9AwHYMoSTn+U8f7hpLC7Z+eOR9IK9VbV3BSgxlZ0a/A20ZkqXxLYtB4jOVaQ9MAlqcqviyhpE0bupqw7Gj714=
-  api_key:
-    secure: MrpVM32AR2Jml5jK+EojD1xuJJtystQLLNN6tntdfvYT3Lm6i6S798yNcLfx48FjFMH/qCQSH6pmDHrOmIsKaBhOQ7+3R6Xg+5ZrQGXWv6XqI8aVdmJo+EI5KCfxnS17IdRBYrhKB+Fxoe4hCQElqcbNAXWeHFJSWKq3kl74C4djTcC6H+RWDXwy1zlm7jLmynuSGCB2FeOf6efJujqwr0rKiz96vO2CuN4C3OaNuXeFWeAguTpdygJA/jKBqA0HTFd41gf2IqFAZPIOxR9Ly4s3C7B1gR2w8BUwjGkf3Lr0fn5/RLmPE68MDHUOLShzYJJbrq87VNS37bDo4gawaaVxDFssJuNfxXXgLDNQ7OhNSTVfQuEKP3y+EFsAZ2JJIKZkrcR9Z46bkTBUiasyTHDAtLOxYHMPLYFSXATe26ixqmCBOE68COnAQmvfMOHdqUEpVl0iZ9J82ilvZyFs0NjYc9Ts/uhLcLL7jRVJw280a+rWdGd7RC6WUWaTif0y/LHK7LNswLvXsmiCZVmffm96gDEEXFPIIhciXVsghlRzLAk8sJsb6VN7Plj0XsOhQLQWJJoQa+TJAtsZLj1WNRp72maMQUjm0oZDlgsm1BvHrBe76Rk5KoIpPEPhD3riURKbB8gbQhM1fKvpbfu5rQzSdOXlsZUwHzggGpJ4s2M=
-  on:
-    tags: true
-    repo: JuroOravec/instance-manager
-env:
-  - CI=true
+  - npm run setup
+script:
+  - commitlint-travis
+  - npm test
+
+jobs:
+  include:
+    - stage: NPM Release
+      # if: tag IS present
+      node_js: lts/*
+      deploy:
+        provider: npm
+        email:
+          secure: DBwDtMDafDtPUAdPfmKom+PnFwJxCXq351nxxrhC9vVkBK6Dy8vaSEkpSy0aOX7j9ndOeiOe+aRZgfbO2vEUSl1I9N6ahH5KiiNIpSBtUxm4WaAaCpfyr3kb7bSztIpEjpr1mb/JdWKzC7JFoFt5mUPPVCmVSR3hBEmQGLUrZtcLXhfgszDkztJoG5j1EzhOfvacJoPadT/3m1uV4ui9nki6u+hIt/wTIoRSlwRkAjHxy6JooGgzkn8TYk+9SF4QmJDP47x1eDVzfbGRGd7CrBD64tOTTZ1BssgfW59DRuupW1holqCmKYzQtSi+NnoPsM2Ibtc9Lk+rbyuGTiwI/xVPNntMsfqFyf265sC4oHZB9FZoxQxn/4fPJegmJBfdTOt1DLK4+3A1w6QNOnVXE7NB6ROOlVhVxJmAVsKNxDGyV13Xq03gf5NRfz8XChZ8KtSlxhQKx4+lli4CBvXfHnX1wwHjgTOslYl7NU86BiRaLM6JRbaZijTfsyaKmA9vhtQ5+Dgl2paKlIYNfWFcquE6yVvSg4rm3ytBgU90bZ3RiVJgbDB3ziw8x4tsp3r+9LVqWye51uIQVX2lBcB6Wr9AwHYMoSTn+U8f7hpLC7Z+eOR9IK9VbV3BSgxlZ0a/A20ZkqXxLYtB4jOVaQ9MAlqcqviyhpE0bupqw7Gj714=
+        api_key:
+          secure: MrpVM32AR2Jml5jK+EojD1xuJJtystQLLNN6tntdfvYT3Lm6i6S798yNcLfx48FjFMH/qCQSH6pmDHrOmIsKaBhOQ7+3R6Xg+5ZrQGXWv6XqI8aVdmJo+EI5KCfxnS17IdRBYrhKB+Fxoe4hCQElqcbNAXWeHFJSWKq3kl74C4djTcC6H+RWDXwy1zlm7jLmynuSGCB2FeOf6efJujqwr0rKiz96vO2CuN4C3OaNuXeFWeAguTpdygJA/jKBqA0HTFd41gf2IqFAZPIOxR9Ly4s3C7B1gR2w8BUwjGkf3Lr0fn5/RLmPE68MDHUOLShzYJJbrq87VNS37bDo4gawaaVxDFssJuNfxXXgLDNQ7OhNSTVfQuEKP3y+EFsAZ2JJIKZkrcR9Z46bkTBUiasyTHDAtLOxYHMPLYFSXATe26ixqmCBOE68COnAQmvfMOHdqUEpVl0iZ9J82ilvZyFs0NjYc9Ts/uhLcLL7jRVJw280a+rWdGd7RC6WUWaTif0y/LHK7LNswLvXsmiCZVmffm96gDEEXFPIIhciXVsghlRzLAk8sJsb6VN7Plj0XsOhQLQWJJoQa+TJAtsZLj1WNRp72maMQUjm0oZDlgsm1BvHrBe76Rk5KoIpPEPhD3riURKbB8gbQhM1fKvpbfu5rQzSdOXlsZUwHzggGpJ4s2M=
+        skip_cleanup: true
+        on:
+          tags: true
+          repo: JuroOravec/instance-manager
+    - stage: GitHub Release
+      # if: tag IS present
+      provider: releases
+      # api_key: x
+      skip_cleanup: true
+      on:
+        tags: true
+        repo: JuroOravec/instance-manager
 
 notifications:
   email:
