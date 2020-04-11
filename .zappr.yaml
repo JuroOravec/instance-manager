@@ -14,6 +14,7 @@ commit:
 approvals:
   ignore: pr_opener # do not count approval from PR opener
   pattern: "^(:\\+1:|👍|[Ll][Gg][Tt][Mm])$"
+  minimum: 1
   groups:
     # Require at least one approval from maintainers
     maintainers:
@@ -31,4 +32,6 @@ specification:
     minimum-length:
       enabled: true
       length: 8
-    contains-issue-number: true
+    # unfortunately, the regex for detecting whether the body contains the
+    # issue number cannot be changed, so following option cannot be used
+    # contains-issue-number: true
