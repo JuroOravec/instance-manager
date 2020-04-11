@@ -4,32 +4,33 @@ about: Suggest an idea for this project
 title: ''
 labels: ''
 assignees: ''
-
 ---
+
+<!-- For an explanation of individual fields, see this great article from NVDA https://github.com/nvaccess/nvda/wiki/Github-issue-template-explanation-and-examples -->
 
 ### Description
 
-_A clear and concise description of what the issue is about._
+<!-- A clear and concise description of what the issue is about. -->
 
 ### Current behaviour
 
-_A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]_
+<!-- A clear and concise description of what the problem is. Ex. I'm always frustrated when [...] -->
 
 ### Desired behaviour
 
-_A clear and concise description of what you want to happen._
+<!-- A clear and concise description of what you want to happen. -->
 
 ### Alternatives
 
-A clear and concise description of any alternative solutions or features you've considered.
+<!-- A clear and concise description of any alternative solutions or features you've considered. -->
 
 ### Relevance
 
-Describe whether this request is related to an existing workflow, feature, or otherwise something in the project today. Or, does this open up new innovative ideas?
+<!-- Describe whether this request is related to an existing workflow, feature, or otherwise something in the project today. Or, does this open up new innovative ideas? -->
 
 ### Tasks
 
-_Do you already know the steps that need to be done to achieve the desired behaviour? If so, list them here_
+<!-- Do you already know the steps that need to be done to achieve the desired behaviour? If so, list them here -->
 
 - [ ] Task 1
 - [ ] Task 2
@@ -37,16 +38,16 @@ _Do you already know the steps that need to be done to achieve the desired behav
 
 ### Screenshots
 
-_Add screenshots if relevant._
+<!-- Add screenshots if relevant. -->
 
 ### Files
 
-_A list of relevant files for this reqeuest._
+<!-- A list of relevant files for this reqeuest. -->
 
 ### Other comments
 
-_Any other comments that may be relevant to this request._
+<!-- Any other comments that may be relevant to this request. -->
 
 ---
 
-Thank you!
+<!-- Thank you! -->

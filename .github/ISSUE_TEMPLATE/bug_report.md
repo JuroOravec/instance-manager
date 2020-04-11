@@ -1,42 +1,43 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: "[BUG]"
+title: '[BUG]'
 labels: ''
 assignees: ''
-
 ---
 
-_(Thanks for reporting an issue! Please write down the issue and fill out as much as possible to help us understand the bug.)_
+<!-- For an explanation of individual fields, see this great article from NVDA https://github.com/nvaccess/nvda/wiki/Github-issue-template-explanation-and-examples -->
+
+<!-- Thanks for reporting an issue! Please write down the issue and fill out as much as possible to help us understand the bug. -->
 
 ### I've checked these
 
-_Before filing the report, check if you've done the following_
+<!-- Before filing the report, check if you've done the following -->
 
 - [ ] Similar issue doesn't already exists.
 
 ### Description
 
-_A clear and concise description of what the issue is about._
+<!-- A clear and concise description of what the issue is about. -->
 
 ### Expected behaviour
 
-_Tell us what should happen._
+<!-- Tell us what should happen. -->
 
 ### Actual behaviour
 
-_Tell us what happens instead. Provide a log message below if relevant._
+<!-- Tell us what happens instead. Provide a log message below if relevant. -->
 
 <details>
 <summary>Logs, error output, etc</summary>
 
-_Provide a log message if relevant. If it’s too long, insert the link here._
+<!-- Provide a log message if relevant. If it’s too long, insert the link here. -->
 
 </details>
 
 ### Tasks
 
-_Do you already know the steps that need to be done to achieve the desired behaviour? If so, list them here_
+<!-- Do you already know the steps that need to be done to achieve the desired behaviour? If so, list them here -->
 
 - [ ] Task 1
 - [ ] Task 2
@@ -44,7 +45,7 @@ _Do you already know the steps that need to be done to achieve the desired behav
 
 ### Your environment
 
-_Use [DeviceInfo](https://www.deviceinfo.me/) to find details on the environment_
+<!-- Use [DeviceInfo](https://www.deviceinfo.me/) to find details on the environment -->
 
 - Software version: _[e.g. 1.0.0]_
 
@@ -59,15 +60,15 @@ _Use [DeviceInfo](https://www.deviceinfo.me/) to find details on the environment
 <details>
 <summary>Additional Details</summary>
 
-_List what packages or other dependencies you're using._
+<!-- List what packages or other dependencies you're using. -->
 
-_Paste additional OS details here if relevant and available._
+<!-- Paste additional OS details here if relevant and available. -->
 
 </details>
 
 ### Steps to Reproduce
 
-_Tell us what steps are needed to reproduce this issue._
+<!-- Tell us what steps are needed to reproduce this issue. -->
 
 1. Go to '...'
 2. Click on '....'
@@ -76,16 +77,20 @@ _Tell us what steps are needed to reproduce this issue._
 
 ### Minimal Demo
 
-_Please provide a working demo. An isolated way to reproduce the behavior (example: GitHub repository with code isolated to the issue that anyone can clone to observe the problem)_
+<!-- Please provide a working demo. An isolated way to reproduce the behavior (example: GitHub repository with code isolated to the issue that anyone can clone to observe the problem) -->
 
 ### Screenshots
 
-_Add screenshots if relevant._
+<!-- Add screenshots if relevant. -->
 
 ### Files
 
-_A list of relevant files for this issue. This will help people navigate the project and offer some clues of where to start._
+<!-- A list of relevant files for this issue. This will help people navigate the project and offer some clues of where to start. -->
 
 ### Other comments
 
-_Any other comments that may be relevant to this issue._
+<!-- Any other comments that may be relevant to this issue. -->
+
+---
+
+<!-- Thank you! -->
