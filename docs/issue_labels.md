@@ -7,28 +7,29 @@ available in this project, why they were chosen, and when to use them.
 
 ## Table of Content
 
-- [Why Labelling Issues](##why-labelling-issues)
-- [Labels](##labels)
-  - [General Labels](###general-labels)
-  - [Type](###type)
-  - [Priority](###priority)
-  - [Status](###status)
-  - [Scale](###scale)
-  - [Severity](###severity)
-  - [Value](###value)
-  - [Effort](###effort)
-  - [Work](###work)
-- [Other Label Ideas](##other-label-ideas)
-  - [User](###user)
-  - [Domain](###domain)
-  - [Team](###team)
-  - [Change](###change)
-  - [Urgency](###urgency)
-  - [Impact](###impact)
-  - [Custom Labels](###custom-labels)
-- [Why the Granularity](##why-the-granularity)
-- [Updating Labels](##updating-labels)
-- [Cheatsheet](##cheatsheet)
+- [Why Labelling Issues](#why-labelling-issues)
+- [Labels](#labels)
+  - [General Labels](#general-labels)
+  - [Type](#type)
+  - [Priority](#priority)
+  - [Status](#status)
+  - [Scale](#scale)
+  - [Severity](#severity)
+  - [Value](#value)
+  - [Effort](#effort)
+  - [Work](#work)
+- [Other Label Ideas](#other-label-ideas)
+  - [User](#user)
+  - [Domain](#domain)
+  - [Team](#team)
+  - [Change](#change)
+  - [Urgency](#urgency)
+  - [Impact](#impact)
+  - [Custom Labels](#custom-labels)
+- [Why the Granularity](#why-the-granularity)
+- [Updating Labels](#updating-labels)
+- [Cheatsheet](#cheatsheet)
+- [References and Useful Links](#references-and-useful-links)
 
 ---
 
@@ -666,3 +667,5 @@ Syncing labels with GitHub:
 
 - [github-label-sync](https://github.com/Financial-Times/github-label-sync) -
   this one is recommended as it syncs label descripts too.
+
+Table of contents generated with [markdown-toc](http://ecotrust-canada.github.io/markdown-toc).
