@@ -34,4 +34,4 @@ specification:
       length: 8
     # unfortunately, the regex for detecting whether the body contains the
     # issue number cannot be changed, so following option cannot be used
-    # contains-issue-number: true
+    contains-issue-number: false
