@@ -27,6 +27,7 @@ available in this project, why they were chosen, and when to use them.
   - [Impact](###impact)
   - [Custom Labels](###custom-labels)
 - [Why the Granularity](##why-the-granularity)
+- [Updating Labels](##updating-labels)
 - [Cheatsheet](##cheatsheet)
 
 ---
@@ -90,8 +91,8 @@ categorization (the intent).
 The type of the issue in the technical sense.
 
 - `type: doc` - Documentation only changes
-- `type: i18n` - Internationalization
-- `type: a11y` - Accessibility
+- `type: i18n` - Internationalization changes
+- `type: a11y` - Accessibility changes
 - `type: feat` - New Feature
 - `type: refactor` - A code change that neither fixes a bug nor adds a feature
 - `type: test` - Adding missing tests or correcting existing tests
@@ -173,7 +174,7 @@ arise in any part of the pipeline.
 
 - `status: on hold (needs proposal)` - A full write-up is needed to explain how
   the feature should work
-- `status: proposal`
+- `status: proposal` - Issue has been formalized into a proposal
 - `status: on hold (needs more info)` - A proposal exists, but there are
   follow-up questions that need to be addressed
 - `status: in discussion` - This issue is being discussed.
@@ -523,6 +524,33 @@ confronting.
 While using only a subset of labels can be sufficient, in larger projects,
 the extra dimensions we capture by the additional info may just save us from
 making that wrong decision in our project.
+
+---
+
+## Updating Labels
+
+To update the labels in your project, use tools like
+[github-label-sync](https://github.com/Financial-Times/github-label-sync).
+To use it, you will need the access token. Install the package (locally or
+globally), and run:
+
+```bash
+# replace token value, username and repo
+
+# to avoid overwriting already existing labels, use `--allow-added-labels`
+
+npx github-label-sync --access-token 0123456789abcdefghijklmnopqrstuvwxyz1234 username/repo
+```
+
+This will update (**AND OVERWRITE**) the labels in your repo with the labels
+defined in `labels.json`.
+
+Note: Once
+[this pull request is integrated](https://github.com/Financial-Times/github-label-sync/pull/47),
+use YAML insteado of JSON.
+
+For more details see
+[github-label-sync](https://github.com/Financial-Times/github-label-sync).
 
 ---
 
