@@ -612,3 +612,29 @@ making that wrong decision in our project.
 - `work: complicated`
 - `work: complex`
 - `work: chaotic`
+
+---
+
+## References and Useful Links
+
+Articles:
+
+- [GitHub wiki](https://help.github.com/en/github/managing-your-work-on-github/about-labels)
+- [Sane GitHub Labels by Dave Lunny](https://medium.com/@dave_lunny/sane-github-labels-c5d2e6004b63)
+- [How we organize GitHub issues: A simple styleguide for tagging by Zach Dunn](https://robinpowered.com/blog/best-practice-system-for-organizing-and-tagging-github-issues/)
+- [Useful GitHub Features by Jenny Wong](https://jwong.co.uk/blog/2018/09/01/useful-github-features/)
+
+Examples:
+
+- [TypeScript labels](https://github.com/microsoft/TypeScript/labels)
+- [Yoast labels](https://github.com/Yoast/wordpress-seo/labels)
+- [SaltStack labels](https://docs.saltstack.com/en/master/topics/development/labels.html#functional-group)
+- [ReadTheDocs labels](https://docs.readthedocs.io/en/stable/development/issue-labels.html)
+- [github-label-presents](https://github.com/seantrane/github-label-presets/tree/732222d9e116c36edb0f2affd1910ba5ae841686#label-groups)
+- [github-standard-labels](https://github.com/yoshuawuyts/github-standard-labels/issues/2)
+- [github-label-setup](https://github.com/azu/github-label-setup/tree/2a223aa6ec984ce0b1c8f4473339d232faa60d82)
+
+Syncing labels with GitHub:
+
+- [github-label-sync](https://github.com/Financial-Times/github-label-sync) -
+  this one is recommended as it syncs label descripts too.
