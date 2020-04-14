@@ -5,7 +5,10 @@
   "homepage": "https://github.com/JuroOravec/instance-manager#readme",
   "repository": "github:JuroOravec/instance-manager",
   "bugs": "https://github.com/JuroOravec/instance-manager/issues",
-  "author": "Juro Oravec",
+  "author": {
+    "name": "Juro Oravec",
+    "email": "juraj.oravec.josefson@gmail.com"
+  },
   "keywords": [],
   "license": "MIT",
   "main": "dist/index.js",
