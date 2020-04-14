@@ -1,5 +1,4 @@
 type Constructor<T> = new (...agrs: any[]) => T;
-
 type Class<T> = Constructor<T>;
 type IdToClassMap<T> = Map<number, Class<T>>;
 type ClassToIdMap<T> = Map<Class<T>, number>;
@@ -10,10 +9,22 @@ type InstanceToIdMap<T extends object> = WeakMap<T, number>;
 type ClassToInstToIdMap<T extends object> = WeakMap<Class<T>, InstanceToIdMap<T>>;
 type ClassToInstCounterMap<T> = WeakMap<Class<T>, () => number>;
 
-// Map for storing counters for individual instances of manager
-const managerCounterMap = new WeakMap();
-const classCounter = (brdigeInstance: any) => {
-  const counter = managerCounterMap.get(brdigeInstance) || ((x: any) => x);
+/**
+ * @hidden
+ */
+type ManagerCounterMap = WeakMap<InstanceManager<any, any>, (c?: any) => number>;
+
+/**
+ * Map for storing counters for individual instances of manager
+ * @hidden
+ */
+const managerCounterMap: ManagerCounterMap = new WeakMap();
+
+/**
+ * @hidden
+ */
+const classCounter = <T extends InstanceManager<any, any>>(instance: T) => {
+  const counter = managerCounterMap.get(instance) || ((x?: any) => x as number);
   return counter();
 };
 
@@ -171,6 +182,9 @@ class InstanceManager<I extends {}, O> {
 
   // Helpers
 
+  /**
+   * @hidden
+   */
   _createClassInstanceMaps(klass: Class<I>) {
     // create {class -> {instanceId -> instance}}
     let instanceMap = this.classToIdToInstanceMap.get(klass);
@@ -194,6 +208,9 @@ class InstanceManager<I extends {}, O> {
     }
   }
 
+  /**
+   * @hidden
+   */
   _removeClassInstanceMaps(klass: Class<I>) {
     this.classToIdToInstanceMap.delete(klass);
     this.classToInstanceToIdMap.delete(klass);
@@ -203,6 +220,9 @@ class InstanceManager<I extends {}, O> {
 
 // Helpers
 
+/**
+ * @hidden
+ */
 function createCounter(incrementor: (c: number) => number = (c) => c + 1) {
   let count = 0;
   return () => {
