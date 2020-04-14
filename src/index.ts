@@ -164,9 +164,9 @@ class InstanceManager<I extends {}, O> {
 
   addInstance(instance: I) {
     const klass = instance.constructor as Class<I>;
-    let klassId = this.classToIdMap.get(klass);
+    const klassId = this.classToIdMap.get(klass);
     if (klassId === undefined) {
-      klassId = this.addClass(klass);
+      this.addClass(klass);
     }
     const instanceIdCounter = this.classToInstanceCounterMap.get(klass) as () => number;
     const instanceId = instanceIdCounter();
