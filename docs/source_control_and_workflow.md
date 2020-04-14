@@ -234,6 +234,7 @@ issues and their scope.
   and releases. The
   [config](https://docs.travis-ci.com/user/customizing-the-build/)
   can be modified in `.travis.yml`.
+- [AllContributors](https://github.com/all-contributors/all-contributors-bot) - Contributors list management.
 
 For more ways how the GitHub workflow could be automated, see
 [ProBot](https://probot.github.io/apps/)

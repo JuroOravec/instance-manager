@@ -1,11 +1,14 @@
 {
   "name": "instance-manager",
   "version": "1.0.0",
-  "description": "Package for tracking dynamically created classes and their instances.",
+  "description": "Manage references to dynamically created classes and their instances.",
   "homepage": "https://github.com/JuroOravec/instance-manager#readme",
   "repository": "github:JuroOravec/instance-manager",
   "bugs": "https://github.com/JuroOravec/instance-manager/issues",
-  "author": "Juro Oravec",
+  "author": {
+    "name": "Juro Oravec",
+    "email": "juraj.oravec.josefson@gmail.com"
+  },
   "keywords": [],
   "license": "MIT",
   "main": "dist/index.js",
@@ -36,7 +39,7 @@
     "format:check": "prettier --check 'src/**/*.{js,mdx}'",
     "lint": "tslint -p tsconfig.json",
     "validate": "run-s test lint format:check",
-    "clean": "shx rm -rf node_modules/ dist/ docs/",
+    "clean": "shx rm -rf node_modules/ dist/",
     "typedoc:markdown": "typedoc --out ./docs/typedoc --mode file --excludeNotExported --exclude '**/__tests__/**/*' --tsconfig ./tsconfig.json --readme none --plugin typedoc-plugin-markdown ./src/",
     "typedoc:html": "typedoc --out ./docs/typedoc --mode file --excludeNotExported --exclude '**/__tests__/**/*' --tsconfig ./tsconfig.json --readme none --plugin none ./src/",
     "setup": "npm run build",
