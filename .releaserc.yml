@@ -1,6 +1,23 @@
 # https://semantic-release.gitbook.io/semantic-release/usage/configuration
-dryRun: false
+dryRun: true
 debug: false
+# Other plugins available at https://semantic-release.gitbook.io/semantic-release/extending/plugins-list
+# Order is important, see https://github.com/semantic-release/changelog#examples
+plugins:
+  - - 'semantic-release-verify-deps'
+    - dependencies: true
+      regExps:
+        - "\\d$" # Each dep ending without a digit is invalid for release
+        - "^\\." # Each dep starting with a dot is invalid for release
+        - '.*github.*' # Each github dep is invalid for release
+  - '@semantic-release/commit-analyzer'
+  - '@semantic-release/release-notes-generator'
+  - '@semantic-release/changelog'
+  - '@semantic-release/github'
+  - - '@semantic-release/git'
+    - assets:
+        - 'CHANGELOG.md'
+  - '@semantic-release/npm'
 # Uncomment these if you need to add custom types (lsted below are defaults)
 # types:
 #   - type: chore
