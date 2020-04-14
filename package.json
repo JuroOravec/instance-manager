@@ -37,7 +37,8 @@
     "lint": "tslint -p tsconfig.json",
     "validate": "run-s test lint format:check",
     "clean": "shx rm -rf node_modules/ dist/ docs/",
-    "typedoc": "typedoc --out ./docs --mode modules --tsconfig ./tsconfig.json ./dev/src/",
+    "typedoc:markdown": "typedoc --out ./docs/typedoc --mode file --excludeNotExported --exclude '**/__tests__/**/*' --tsconfig ./tsconfig.json --readme none --plugin typedoc-plugin-markdown ./src/",
+    "typedoc:html": "typedoc --out ./docs/typedoc --mode file --excludeNotExported --exclude '**/__tests__/**/*' --tsconfig ./tsconfig.json --readme none --plugin none ./src/",
     "setup": "npm run build",
     "prerelease": "run-s install setup validate && git-authors-cli && git add .",
     "release": "standard-version",
@@ -71,6 +72,7 @@
     "tslint": "^6.1.1",
     "tslint-config-prettier": "^1.18.0",
     "typedoc": "^0.17.4",
+    "typedoc-plugin-markdown": "^2.2.17",
     "typescript": "^3.8.3"
   },
   "dependencies": {}
