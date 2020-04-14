@@ -28,6 +28,7 @@ later, but your insight cannot be replaced._
   - [Code, commit message and labeling conventions](#code-commit-message-and-labeling-conventions)
   - [Responsibilities](#responsibilities)
   - [Ways I can contribute](#ways-i-can-contribute)
+  - [After Contributing](#after-contributing)
 - [Pull Requests](#pull-requests)
 - [Code Review Process](#code-review-process)
 - [Your First Contribution](#your-first-contribution)
@@ -251,9 +252,34 @@ We have an open mind! Whether it's writing code, writing blogs, improving
 documentation, bug triaging, or writing tutorials are all examples of helpful
 contributions that mean less work for others.
 
-It doesn't have to stop there! Do you know of somebody who may benefit from our
+And it doesn't have to stop there! Do you know of somebody who may benefit from our
 project? Or you want to mention us at your next conference? Suggestions for
 improving UX? The ways to help are truly endless!
+
+[AllContributors](https://github.com/all-contributors/all-contributors),
+has a list of pretty much
+[every way how you can contribute](https://allcontributors.org/docs/en/emoji-key).
+
+### After Contributing
+
+We use
+[AllContributors](https://github.com/all-contributors/all-contributors),
+to recognize the work of everyone who has contributed. Once you have
+contributed, we'd love to show the world that you are among our contributors.
+
+For that we use the [AllContributors Bot](https://allcontributors.org/docs/en/bot/usage). To add you to the contributors, make a comment on an issue or a PR with text:
+
+```txt
+@all-contributors please add <your username> for <contributions>
+```
+
+where `<contributions>` is any of the [emoji keys](https://allcontributors.org/docs/en/emoji-key).
+
+#### Adding Someone Else to Contributors
+
+If the contributor doesn't add themselves, other community members might suggest to add them to recognize their contributions.
+
+However not everybody might want to agree to it. We want to respect people's preferences, so if you want to add somebody, please first create an issue or a PR, mention the user there, and give them the chance to discuss it.
 
 ---
 
@@ -374,7 +400,7 @@ change, name/repo change, etc. -->
 [issue_labels]: https://github.com/JuroOravec/instance-manager/blob/master/docs/issue_labels.md
 [issue_labels@status]: https://github.com/JuroOravec/instance-manager/blob/master/docs/issue_labels.md#status
 [svc_and_workflow]: https://github.com/JuroOravec/instance-manager/blob/master/docs/source_control_and_workflow.md
-[code_of_conduct]: https://github.com/JuroOravec/instance-manager/blob/master/.github/CODE_OF_CONDUCT.md
-[pull_request_template]: https://github.com/JuroOravec/instance-manager/tree/master/.github/PULL_REQUEST_TEMPLATE.md
-[feature_request_template]: https://github.com/JuroOravec/instance-manager/blob/master/.github/ISSUE_TEMPLATE/feature_request.md
+[code_of_conduct]: https://github.com/JuroOravec/instance-manager/blob/master/docs/CODE_OF_CONDUCT.md
+[pull_request_template]: https://github.com/JuroOravec/instance-manager/tree/master/docs/PULL_REQUEST_TEMPLATE.md
+[feature_request_template]: https://github.com/JuroOravec/instance-manager/blob/master/docs/ISSUE_TEMPLATE/feature_request.md
 [help_wanted]: https://github.com/JuroOravec/instance-manager/labels/help%20wanted
