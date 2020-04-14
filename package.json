@@ -39,7 +39,7 @@
     "format:check": "prettier --check 'src/**/*.{js,mdx}'",
     "lint": "tslint -p tsconfig.json",
     "validate": "run-s test lint format:check",
-    "clean": "shx rm -rf node_modules/ dist/ docs/",
+    "clean": "shx rm -rf node_modules/ dist/",
     "typedoc": "typedoc --out ./docs --mode modules --tsconfig ./tsconfig.json ./dev/src/",
     "setup": "npm run build",
     "prerelease": "run-s install setup validate && git-authors-cli && git add .",
