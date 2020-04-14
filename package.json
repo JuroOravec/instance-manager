@@ -1,7 +1,7 @@
 {
   "name": "instance-manager",
   "version": "1.0.0",
-  "description": "Package for tracking dynamically created classes and their instances.",
+  "description": "Manage references to dynamically created classes and their instances.",
   "homepage": "https://github.com/JuroOravec/instance-manager#readme",
   "repository": "github:JuroOravec/instance-manager",
   "bugs": "https://github.com/JuroOravec/instance-manager/issues",
