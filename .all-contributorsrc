@@ -1,0 +1,24 @@
+{
+  "projectName": "instance-manager",
+  "projectOwner": "JuroOravec",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 70,
+  "commit": false,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "JuroOravec",
+      "name": "Juro Oravec",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/25986782?v=4",
+      "profile": "https://github.com/JuroOravec",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
