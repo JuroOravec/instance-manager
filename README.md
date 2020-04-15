@@ -17,24 +17,28 @@ One-liner explaining the purpose of the module
 
 Manage references to dynamically created classes and their instances.
 
+<!-- markdownlint-disable -->
+
 #### 🏠 [Homepage](https://github.com/JuroOravec/instance-manager#readme) | 🗃 [Repository](https://github.com/JuroOravec/instance-manager) | 📚 [Documentation](https://github.com/JuroOravec/instance-manager/tree/master/docs) | 🐛 [Issue Tracker](https://github.com/JuroOravec/instance-manager/issues)
+
+<!-- markdownlint-enable -->
 
 ## 🪑 Table of Content
 
-- [🧰 Features](#🧰-features)
-- [🔮 Background](#🔮-background)
-- [👶 Install](#👶-install)
-- [🚀 Usage](#🚀-usage)
-- [🤖 API](#🤖-api)
-- [⏳ Changelog](#⏳-changelog)
-- [🛠 Developing](#🛠-developing)
-- [🏗 Roadmap](#🏗-roadmap)
-- [🤝 Contributing](#🤝-contributing)
-- [🧙‍♂️ Contributors](#🧙‍♂️-contributors)
-- [⭐️ Show your support](#⭐️-show-your-support)
-- [🔗 Related Projects](#🔗-related-projects)
-- [👨‍🔧 Maintainers](#👨‍🔧-maintainers)
-- [📝 License](#📝-license)
+- [🧰 Features](#-features)
+- [🔮 Background](#-background)
+- [👶 Install](#-install)
+- [🚀 Usage](#-usage)
+- [🤖 API](#-api)
+- [⏳ Changelog](#-changelog)
+- [🛠 Developing](#-developing)
+- [🏗 Roadmap](#-roadmap)
+- [🤝 Contributing](#-contributing)
+- [🧙 Contributors](#-contributors)
+- [⭐ Show your support](#-show-your-support)
+- [🔗 Related Projects](#-related-projects)
+- [👨‍🔧 Maintainers](#-maintainers)
+- [📝 License](#-license)
 
 ## 🧰 Features
 
@@ -42,7 +46,8 @@ Manage references to dynamically created classes and their instances.
 A brief description of your project, what it is used for and how does life get
 awesome when someone starts to use it.
 
-- Note and briefly describe any key concepts (technical, philosophical, or both) important to the user’s understanding.
+- Note and briefly describe any key concepts (technical, philosophical, or
+  both) important to the user’s understanding.
 - Link to any supplementary blog posts or project main pages.
 - State if it is out-of-the-box user-friendly, so it’s clear to the user.
 - List its most useful/innovative/noteworthy features.
@@ -51,7 +56,8 @@ awesome when someone starts to use it.
 
 - Useful for managing references to dynamically-created classes and their
   instances
-- If you use class factory functions to create classes, you can store the class config along with the class in `instance-manager`
+- If you use class factory functions to create classes, you can store the class
+  config along with the class in `instance-manager`
 - Access classes and their instances using primitives (numbers)
 - Classes and instances are weakly-references, so they will be
   garbage-collected
@@ -63,18 +69,26 @@ Core Technical Concepts/Inspiration
 - Potentially unfamiliar terms link to informative sources
 - Why does it exist?
 - Frame your project for the potential user.
-- Compare/contrast your project with other, similar projects so the user knows how it is different from those projects.
-- Highlight the technical concepts that your project demonstrates or supports. Keep it very brief.
+- Compare/contrast your project with other, similar projects so the user knows
+  how it is different from those projects.
+- Highlight the technical concepts that your project demonstrates or supports.
+  Keep it very brief.
 - Keep it useful.
-- Performs [cognitive funneling](https://github.com/noffle/art-of-readme#cognitive-funneling)
+- Performs cognitive funneling
+  https://github.com/noffle/art-of-readme#cognitive-funneling
 - Caveats and limitations mentioned up-front
 -->
 
-This package is used to enable _loader_ and _plugin_ instances created from dynamically created classes to share information in Webpack, effectively using a single dynamically created instance to behave both as a loader and a plugin.
+This package is used to enable _loader_ and _plugin_ instances created from
+dynamically created classes to share information in Webpack, effectively using
+a single dynamically created instance to behave both as a loader and a plugin.
 
-If you need that functionality, head over to [ploadin](https://github.com/JuroOravec/ploadin), where the functionality has been abstracted.
+If you need that functionality, head over to
+[ploadin](https://github.com/JuroOravec/ploadin), where the functionality has
+been abstracted.
 
-This package can be used for more cases. The problem faced can be generalized as follows:
+This package can be used for more cases. The problem faced can be generalized
+as follows:
 
 - There are dynamically created classes with unknown number of instances.
 - You need to access a specific instance of a specific class.
@@ -369,21 +383,27 @@ could be improved, please be sure to share it with us by [opening an issue](#�
 Contributions, issues and feature requests are welcome! Thank you ❤️
 
 Feel free to dive in! See [current issues](https://github.com/JuroOravec/instance-manager/issues),
-[open an issue](https://github.com/JuroOravec/instance-manager/issues/new), or [submit PRs](https://github.com/JuroOravec/instance-manager/compare).
+[open an issue](https://github.com/JuroOravec/instance-manager/issues/new), or
+[submit PRs](https://github.com/JuroOravec/instance-manager/compare).
 
-How to report bugs, feature requests, and how to contribute and what conventions we use is all described in the [contributing guide](https://github.com/JuroOravec/instance-manager/tree/master/docs/CONTRIBUTING.md).
+How to report bugs, feature requests, and how to contribute and what
+conventions we use is all described in the
+[contributing guide](https://github.com/JuroOravec/instance-manager/tree/master/docs/CONTRIBUTING.md).
 
 When contributing we follow the
 [Contributor Covenant](https://contributor-covenant.org/version/1/3/0/).
 See our [Code of Conduct](https://github.com/JuroOravec/instance-manager/blob/master/docs/CODE_OF_CONDUCT.md).
 
-## 🧙‍♂️ Contributors
+## 🧙 Contributors
 
 Contributions of any kind welcome. Thanks goes to these wonderful people ❤️
 
 ### Recent and Top Contributors
 
-<!-- Hall of Fame uses 8 links (7 users + 1 stats), see https://github.com/sourcerer-io/hall-of-fame#faq -->
+<!--
+Hall of Fame uses 8 links (7 users + 1 stats),
+see https://github.com/sourcerer-io/hall-of-fame#faq
+-->
 
 [![Hall of Fame Contributor 1](https://sourcerer.io/fame/JuroOravec/JuroOravec/instance-manager/images/0)](https://sourcerer.io/fame/JuroOravec/JuroOravec/instance-manager/links/0)
 [![Hall of Fame Contributor 2](https://sourcerer.io/fame/JuroOravec/JuroOravec/instance-manager/images/1)](https://sourcerer.io/fame/JuroOravec/JuroOravec/instance-manager/links/1)
@@ -416,9 +436,9 @@ _No additional contributors. Be the first one!_
 
 <!-- markdownlint-enable -->
 
-## ⭐️ Show your support
+## ⭐ Show your support
 
-Give a ⭐️if this project helped you!
+Give a ⭐️ if this project helped you!
 
 ## 🔗 Related Projects
 
