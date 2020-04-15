@@ -37,7 +37,7 @@
     "test:jest": "jest --config jestconfig.json",
     "codecov:upload": "dotenv bash scripts/upload_codecov.sh",
     "format": "prettier --write 'src/**/*.{ts,js}'",
-    "format:check": "prettier --check 'src/**/*.{js,mdx}'",
+    "format:check": "prettier --check 'src/**/*.{ts,js}'",
     "lint": "tslint -p tsconfig.json",
     "validate": "run-s test lint format:check",
     "clean": "shx rm -rf node_modules/ dist/",
