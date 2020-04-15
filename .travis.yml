@@ -23,6 +23,7 @@ jobs:
         - npm run test:cov
     - stage: release
       node_js: lts/*
+      script: ':' # noop, skips tests
       deploy:
         provider: script
         skip_cleanup: true
