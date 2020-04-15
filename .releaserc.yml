@@ -21,7 +21,8 @@ plugins:
   - - '@semantic-release/npm'
     - tarballDir: dist
   - - '@semantic-release/github'
-    - assets: 'dist/*.tgz'
+    - assets:
+        - 'dist/*.tgz'
 # Uncomment these if you need to add custom types (lsted below are defaults)
 # types:
 #   - type: chore
