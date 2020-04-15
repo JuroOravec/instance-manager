@@ -1,9 +1,5 @@
-.gitignore
-.travis.yml
+.*
 tsconfig.json
-.vscode
 tslint.json
-.prettierrc
-.env*
-__tests__/**/*
+**/__tests__/
 docs/
