@@ -21,20 +21,20 @@ Manage references to dynamically created classes and their instances.
 
 ## 🪑 Table of Content
 
-- [🧰 Features](#🧰-features)
-- [🔮 Background](#🔮-background)
-- [👶 Install](#👶-install)
-- [🚀 Usage](#🚀-usage)
-- [🤖 API](#🤖-api)
-- [⏳ Changelog](#⏳-changelog)
-- [🛠 Developing](#🛠-developing)
-- [🏗 Roadmap](#🏗-roadmap)
-- [🤝 Contributing](#🤝-contributing)
-- [🧙‍♂️ Contributors](#🧙‍♂️-contributors)
-- [⭐️ Show your support](#⭐️-show-your-support)
-- [🔗 Related Projects](#🔗-related-projects)
-- [👨‍🔧 Maintainers](#👨‍🔧-maintainers)
-- [📝 License](#📝-license)
+- [🧰 Features](#-features)
+- [🔮 Background](#-background)
+- [👶 Install](#-install)
+- [🚀 Usage](#-usage)
+- [🤖 API](#-api)
+- [⏳ Changelog](#-changelog)
+- [🛠 Developing](#-developing)
+- [🏗 Roadmap](#-roadmap)
+- [🤝 Contributing](#-contributing)
+- [🧙 Contributors](#-contributors)
+- [⭐ Show your support](#-show-your-support)
+- [🔗 Related Projects](#-related-projects)
+- [👨‍🔧 Maintainers](#-maintainers)
+- [📝 License](#-license)
 
 ## 🧰 Features
 
@@ -377,7 +377,7 @@ When contributing we follow the
 [Contributor Covenant](https://contributor-covenant.org/version/1/3/0/).
 See our [Code of Conduct](https://github.com/JuroOravec/instance-manager/blob/master/docs/CODE_OF_CONDUCT.md).
 
-## 🧙‍♂️ Contributors
+## 🧙 Contributors
 
 Contributions of any kind welcome. Thanks goes to these wonderful people ❤️
 
@@ -416,9 +416,9 @@ _No additional contributors. Be the first one!_
 
 <!-- markdownlint-enable -->
 
-## ⭐️ Show your support
+## ⭐ Show your support
 
-Give a ⭐️if this project helped you!
+Give a ⭐️ if this project helped you!
 
 ## 🔗 Related Projects
 
