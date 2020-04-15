@@ -1,8 +1,10 @@
 # https://semantic-release.gitbook.io/semantic-release/usage/configuration
-dryRun: true
+dryRun: false
 debug: false
 # Other plugins available at https://semantic-release.gitbook.io/semantic-release/extending/plugins-list
-# Order is important, see https://github.com/semantic-release/changelog#examples
+# Order is important, see:
+# - https://github.com/semantic-release/changelog/tree/bede4d04b0a9ec13a5661bf0424465176486f3fd#examples
+# - https://github.com/semantic-release/npm/tree/1d1bc40fb8a47f3e40cb8c0268b8ca17b2ace95a#examples
 plugins:
   - - 'semantic-release-verify-deps'
     - dependencies: true
@@ -13,11 +15,13 @@ plugins:
   - '@semantic-release/commit-analyzer'
   - '@semantic-release/release-notes-generator'
   - '@semantic-release/changelog'
-  - '@semantic-release/github'
   - - '@semantic-release/git'
     - assets:
-        - 'CHANGELOG.md'
-  - '@semantic-release/npm'
+        - CHANGELOG.md
+  - - '@semantic-release/npm'
+    - tarballDir: dist
+  - - '@semantic-release/github'
+    - assets: 'dist/*.tgz'
 # Uncomment these if you need to add custom types (lsted below are defaults)
 # types:
 #   - type: chore
