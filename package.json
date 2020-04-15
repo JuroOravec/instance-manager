@@ -26,7 +26,7 @@
       "pre-commit": "git-authors-cli",
       "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-push": "npm test"
+      "pre-push": "npm run test:jest"
     }
   },
   "scripts": {
@@ -39,7 +39,7 @@
     "format": "prettier --write 'src/**/*.{ts,js}'",
     "format:check": "prettier --check 'src/**/*.{ts,js}'",
     "lint": "tslint -p tsconfig.json",
-    "validate": "run-s test lint format:check",
+    "validate": "run-s test:jest lint format:check",
     "clean": "shx rm -rf node_modules/ dist/",
     "typedoc:markdown": "typedoc --out ./docs/typedoc --mode file --excludeNotExported --exclude '**/__tests__/**/*' --tsconfig ./tsconfig.json --readme none --plugin typedoc-plugin-markdown ./src/",
     "typedoc:html": "typedoc --out ./docs/typedoc --mode file --excludeNotExported --exclude '**/__tests__/**/*' --tsconfig ./tsconfig.json --readme none --plugin none ./src/",
