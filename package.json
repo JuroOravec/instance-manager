@@ -23,13 +23,14 @@
   },
   "husky": {
     "hooks": {
+      "pre-commit": "git-authors-cli",
       "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-push": "npm test"
     }
   },
   "scripts": {
-    "build": "tsc",
+    "build": "./node_modules/typescript/bin/tsc",
     "watch": "tsc --watch",
     "test": "npm run test:cov",
     "test:cov": "run-s test:jest codecov:upload",
@@ -43,12 +44,8 @@
     "typedoc:markdown": "typedoc --out ./docs/typedoc --mode file --excludeNotExported --exclude '**/__tests__/**/*' --tsconfig ./tsconfig.json --readme none --plugin typedoc-plugin-markdown ./src/",
     "typedoc:html": "typedoc --out ./docs/typedoc --mode file --excludeNotExported --exclude '**/__tests__/**/*' --tsconfig ./tsconfig.json --readme none --plugin none ./src/",
     "setup": "npm run build",
-    "prerelease": "run-s install setup validate && git-authors-cli && git add .",
-    "release": "standard-version",
-    "postrelease": "run-s release:*",
-    "release:tags": "git push --follow-tags origin master",
-    "release:github": "conventional-github-releaser -p angular",
-    "prepublishOnly": "npm test && npm run lint",
+    "prerelease": "run-s install setup validate",
+    "prepublishOnly": "npm run validate",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate"
   },
