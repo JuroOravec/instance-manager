@@ -13,10 +13,14 @@ before_script:
   - npm run setup
 script:
   - commitlint-travis
-  - npm test
+  - npm run test:jest
 
 jobs:
   include:
+    - stage: codecov
+      node_js: lts/*
+      script:
+        - npm run test:cov
     - stage: release
       node_js: lts/*
       deploy:
