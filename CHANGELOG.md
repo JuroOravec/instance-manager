@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/JuroOravec/instance-manager/compare/v1.0.1...v1.0.2) (2020-04-15)
+
+
+### Bug Fixes
+
+* **ci:** fix releasing to npm ([8b399eb](https://github.com/JuroOravec/instance-manager/commit/8b399ebcae0fd75bf361e77cf9f0277455463b8b))
+
 ## [1.0.1](https://github.com/JuroOravec/instance-manager/compare/v1.0.0...v1.0.1) (2020-04-15)
 
 
