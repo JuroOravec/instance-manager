@@ -38,6 +38,12 @@ jobs:
       node_js: lts/*
       script:
         - npm run test:cov
+
+    - stage: update CHANGELOG.md
+      if: type = pull_request
+      node_js: lts/*
+      script: 'sh ./scripts/update_changelog.sh'
+
     - stage: release
       node_js: lts/*
       script: ':' # noop, skips tests
