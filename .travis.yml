@@ -7,6 +7,23 @@ node_js:
   - '12'
   - '13'
 
+before_install:
+  # Configure signed git commits from within Travis CI, see:
+  # https://github.com/semantic-release/git/tree/905f113a577c55cd9bb0a37ea3504d9e8ee2dfa2#gpg-signature
+  # Decrypt the git_gpg_keys.asc.enc key into /tmp/git_gpg_keys.asc
+  - openssl aes-256-cbc -K $encrypted_44fd1061a48b_key -iv $encrypted_44fd1061a48b_iv -in ./config/travis-ci/git_gpg_keys.asc.enc -out /tmp/git_gpg_keys.asc -d
+  # Make sure only the current user can read the keys
+  - chmod 600 /tmp/git_gpg_keys.asc
+  # Import the gpg key
+  - gpg --batch --yes --import /tmp/git_gpg_keys.asc
+  # Create a script that pass the passphrase to the gpg CLI called by git
+  - echo '/usr/bin/gpg2 --passphrase ${GPG_PASSPHRASE} --batch --no-tty "$@"' > /tmp/gpg-with-passphrase && chmod +x /tmp/gpg-with-passphrase
+  # Configure git to use the script that passes the passphrase
+  - git config gpg.program "/tmp/gpg-with-passphrase"
+  # Configure git to sign the commits and tags
+  - git config commit.gpgsign true
+  # Configure git to use your GPG key
+  - git config --global user.signingkey ${GPG_KEY_ID}
 install:
   - npm install
 before_script:
@@ -43,3 +60,13 @@ env:
     - secure: EU7BVyvMCHyDnV7PWOaLmGvfwaIxZNgkMymgU4OP0nJ7FxubLvZ2uBver4IZNTmlp6EwYe+apKUDZY6fJey+N6rCXR4qdPAvIey5Nh1SMHXbl1eYl7grvmyK29buSOF7+nCYREAsF06ZdqIikzf1rEaCUD+3FF1MrbUiJXf6xbojEcQf0F9uTFGJk2VXFkaTTKzCB6OqJ43zLY318WjkeIOsdbPAjD5kMaod3BY12U2jKe4NwMJU9m4Onx4FEeXJ+V920Avv6VdC8JsdE7Q1tteLpuUBE3HIK5Cj6s0lI6IUww7xTaI7tMaQz0lFuk8YaUw7eg78tlCD+liGvXpmT4mGfDQMKurIvdbVspLr4SqUe7NBe61Aq7yyLgtWUf1342e5lSJosGFAbjuowzn3edcxkZzAsTdLWZReCwjAkIwCBS4+/HeRm/r0VmFZf3YqDX4rXnw7JI/KPevLlc5rr4KgAVGHGGEj31ZhASIyc9T9D4ZkChjM/Thn8dSX1yG6r2AblTWxDbgSVh00iQi1ucUQfn5o6qi+nuKJWknENmPeFpIRv73pIa+GLZu2hrf4CYqO8w2zxzTzotNLkePRYOHFeGIsgEH5pDwL4BgXZcXyn/9NKeL8sGtevyTOjSWyBZR6u6MEB0eBgMGmxiF8c9eKYzOZwK3vhfSG4UTOfrg=
     # NPM token - semantic-release/npm
     - secure: QZv5tOtLIR7s4tQHOIu2wLM3VkV15Tb99qwEIfXsYtQXBF0hiO8VegHKN/fLnh9DxJzuASqlNa0RK+7cx1I6y1dVb78bNIY5nOFKSsubxBsoUXF3vgp6QPihjzeIlanlOH7AgW+pb7269KomOnkT4DOu5Gns+C9p27e9ZUfHZ8mH3zkfclPycLqW08ImUPv/5ipZCgLyEtWPsFFRPzJi61ZLTZ8coGub/zPHvkft1OGk7XsBXqb28m6/ccS8B+b5qxvoDTNVTIitJeyemki7eXnEjnZeMD8iKRuArCuCtV7hjaUOLZc7rKKszH8LnGl+V7j+7g6EsMrIkR5jPspJXmT2TO1QdHj2y0zKrPeczj2Rr5JHacWcXtvadladOKysbd1+ECvBxS+W/18iqB9HfdRXEIzojKUJ7QDwk65hWI4QRwilMshAw1K4twV/b8JOagkAZLPEHgY9sSZqaisbf+QEcutPDN3jDNRqYjJt+sCGKnmyzQO/+yRY3VUko9wZVULuqeBA8wHHKQmzWDVDso4Qsg8471m5z6tTstw4kR9uVha3PVIYbCPw76AiKUU8px9vp4ySnhG5tkybFB2bEZ9PBwMkcmPtYp7vO+lGZbnysEu+It02VSdzJ4roRy2R+m/vZEgRyQZDkVj7ckzDy5Nk6o78y4KVdcH/xOXMjyk=
+    # GPG signature env vars
+    # https://github.com/semantic-release/git/tree/905f113a577c55cd9bb0a37ea3504d9e8ee2dfa2#gpg-signature
+    # GPG_PASSPHRASE
+    - secure: mVeovbB95pr3UFL+ilv5azvJB5NurYt8S29zIoyBzfpFvJnph8XvS63bvttC9aOE7a1Af13wXZhdy+eqyw2O8JmX+ESVQ1dRT9fe8rs4hGvdFUwe3PA+5QP8SBhRnRU49kqg+YiirzBwLAZZkhA3/kEl1T9nNpPmhmSm+sOV/Hxao0o+Uddk1xSQDk7Y/mTU9m/kbakr/7HS7PvACW1IB3HYsm5QJVGde1gQp4H8/AT1K9+j44PlonGxC8A07WO36YBcZvsoDg1wyldTNrb7X5zR9myf2kwdSP2Dh95BKLfxR8BuyhlA0T6OKCXZFM1Vx2Nlo1G0y5kPidsR59usXZIAC1Oi15gqBmJD9WXs71MmPDVv85oVBY+eRrbEDGaoc+0JwzHQc+Y/6LmKJ87wP9a9hh6IA9VVzhyO/vYox5zRtWYS4+KrY0jGOQM2MwIbOR5P0i4rWcEz8SDtvOuo2S6YIG4iBdZkUQPrnHlTtNYQqyvNL6nRwHsLYZpwMlqdV1mWrb1YdbolIN1uOE9zsI+/Qo/vNNI7lvs6gToF3OIAjdlzzVfcJHHXMIWCeQVtAiagVz9QTBsIDQCqlP6KdcOC+sUXiuf1Ri9pHGM2SzIXwaxNoO+yNmFGH6COReeUi3s056b9ONMM9q0cgOEhMZvQXJQdZHW+/5DRv35+eic=
+    # GPG_KEY_ID
+    - secure: eXiup0sv9w8nn+us+6Cc0WxLkUeILY3vp+CBFqhUFOPoDBPyNtjYDOmPhOTh03k8VJm/DKuEpxg0SVtcmJg/8q96YRuXIIozfXFVSSIrNK/jeH2oV2fKR5ghdAYToxG+JYBW2iNvZmIQdZ4Yv+auO/XM2kCemR+kyD25UxD+4uoDRpnfIuwf+nTH3VSaL1Z+Kz/bqyzLkIJWJ6o043AzF0Vl7LVNd7FPoCF5Ds1CNBnh7I0C3cGSjO1blTEejYfep9HsR73bjoWgqMWIdwZhzPHI6+Psdu097Pn7nayc9uCNLCEhP+N5QFdzKOAjudVsw70bYkBvGGjLdeJ981hogC2V36KK+2mUmwG+Z88UDCHtOmbRiNL6j959r4bYIAqZQ39yKXqMq+yS2Dkqwy1we5RwYQsdSjA3R+O7ZHef7jXnXt+O96oefF2Y4fqkFksn78AnbdLcW6cvyOcznuHImfbNCbhMxi6Wz+R2AKrBc/Grq7nQ3qK7ua4Bs4w+2VIEDw4kKFAsTUz0A2AVpzfMUC8z6UOw+P5r6x1+fmcWOZGFAc8k26Nk9sSb/yTi5ZdxiPa8AyZ/nVLQ51FAWo7Uen2HG6Bhx2Y5UAxeMBK0NsfNy4rFQ9Ykk16clZpvQH4mw9otDWsHn4tshvp9OG2n3Y/xUvxEur3RKbNtKA5DQQU=
+    # GIT_EMAIL
+    - secure: LzvraQQo4XPQDSonqZmZ5nVD08BF3XC1kkjEjtFD+7LdiUu622zhr3g38OZH/7c2Q7hZ6EXoyGM08NK1uktNkXMP5xS87AcBU3j477wpkweXEo67AwaKNmuKzI8Ng5sO8ausr+I/PUotIDzEszSe00DOn6RA/SSr2bR8g1/dId4vKHBPWNCfpeFKclE0mI3CV4TRlX5E0kinqghgm3CrfZeRzfzwwAf+cdcH9UCHwgIUnoWq2DnHpLcX6aztPdl/eeBi9O5Hvi8fy8Z+IF5IoqkDALy80+uMWn2JprlVOaZt6NanUsHtRYVEqRJIBO5Y40Os9MhZl5L3jhhBsT30NfPVFbvy8vo5wHmIwiuwAnjYyfOGAFMpKncXaOyTi5Jfagr10vkFqL0hpfQp0rgsHLtrkg4NWSJf73lJt4T/Gmrh80CkpbfboEcI4ThAOYTydrI4B1ckrSkP1xP8vuOKBS/o+qcepOp73NCBGGS+9jkOEWHumbCXttTmU96GPqrWpFQ0HxLhu5dTKTrjXvIxtM1xVaSBtuzMyCPkikjZh/YNfCUhJq9RKqZ1ZRUF/0WX5aAaQbunu8wDy/qyHRqKa8BSUw3SRpPJ208eMExKHdY7XtQamQ2J+aM/mTAQ03K+UIk6trMMxYMQc2r2gUuH8APoUqkKk+ERxFWLRkj+eT8=
+    # GIT_USERNAME
+    - secure: F7W49pqv4qH2z/hMyYLkJ+JDUhJEOqSuYFgqAgYraQpsJbxHaBQZmeySMqF4Ca1hUARVwM0bN/Kxx6MOdOOdKPk7bOgnOyPM6mS1mSFxRZIoCezMCDhebOaoMOQ8+s2FXb23vajuEXoaj+OSS347DzGW0TjJ/vzZRatycjzrQFWMmEme5lZcMgR4JBiSjtl05heyxSRMLLfEqB5GKPjJC58BMtuls5lTL3RpTqNNj2kbG09oE5lutsR+cVGSGmryCB/OJvw03ev93poE/L4XP60Z63hCxWo64+AV8W4gMU6Ce5N9FDxiagn/0nHNExwxHmOtFrmAsDZqP16oYQobv5HSDfx0aRU/suW1/wZQmp/PqMN4ue4nlQp+Skp+SR0pJu9RRuh+8W+YuXZJGju6zI2nnViSxQRAIXXegCGrrHg8Anx+qPbkcBiPTNN03OhsVmYnmPyRLvUVwVu8jQcFaXM1UHNr91enKea2PBbx5l2OCVPur4vQ1fy67QEJ3tM2CbkSuolJSvQdQ9iQPD5kK6iEh06lIFg2qLTRm0UsyX4eUCzP3c7UvfD5h7E/fQ2Ztgsl8cB1d4SSX1MmWoA2rm2ch6IECj9lozLguLHphz6X9Vvp8OZxWNLe3KcEXL+kVTs5r4kIiMF0QIyTMNx2bSa6qGADPJE4jLMyPxbuCtg=
