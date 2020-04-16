@@ -8,6 +8,9 @@ lerna-debug.log*
 
 .vscode
 
+# Temporary files
+temp/
+
 # https://github.com/semantic-release/git#generate-the-gpg-keys
 git_gpg_keys.asc
 
