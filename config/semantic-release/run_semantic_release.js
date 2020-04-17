@@ -1,17 +1,18 @@
 const sr = require('semantic-release');
 
-// Trigger semantic-release but with custom branch as the target branch
-function runSemanticRelease(branch) {
+// Trigger semantic-release but with overrides
+function runSemanticRelease() {
   const env = {
     ...process.env,
-    TRAVIS_BRANCH: branch,
+    TRAVIS_PULL_REQUEST: false,
+    IGNORE_PR_CHECK: true,
   };
 
   sr(undefined, { env });
 }
 
 if (require.main === module) {
-  runSemanticRelease(process.argv[2]);
+  runSemanticRelease(...process.argv.slice(2));
 }
 
 module.exports = runSemanticRelease;
