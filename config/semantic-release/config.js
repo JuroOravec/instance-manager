@@ -33,10 +33,9 @@ const config = {
       // https://github.com/semantic-release/commit-analyzer/tree/2b9c73e1b4d63221980da18fd3d1f2817aaee1b8#rules-definition
       {
         releaseRules: [
-          // Treat refactor as patch
           { type: 'refactor', release: 'patch' },
-          // Treat style as patch
           { type: 'style', release: 'patch' },
+          { type: 'build', release: 'patch' },
           // README change.
           // Scope contains variation of README, also incl. dashed variations
           // (e.g. read-me)
