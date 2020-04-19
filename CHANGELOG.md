@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/JuroOravec/instance-manager/compare/v1.0.2...v1.1.0) (2020-04-19)
+
+
+### Features
+
+* **test:** test ([9aa17ba](https://github.com/JuroOravec/instance-manager/commit/9aa17bac5cbdaa2205d9da3d885738a9b402dbcd))
+
 ## [1.0.0]() (2020-04-15)
 
 ## [1.0.2](https://github.com/JuroOravec/instance-manager/compare/v1.0.1...v1.0.2) (2020-04-15)
