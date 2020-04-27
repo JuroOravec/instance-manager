@@ -1,6 +1,6 @@
 {
   "name": "instance-manager",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Manage references to dynamically created classes and their instances.",
   "homepage": "https://github.com/JuroOravec/instance-manager#readme",
   "repository": "github:JuroOravec/instance-manager",
@@ -23,10 +23,10 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "git-authors-cli",
+      "pre-commit": "git-authors-cli && run-s lint format:check",
       "prepare-commit-msg": "sh ./scripts/prepare_commit_msg.sh",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-push": "npm run test:jest"
+      "pre-push": "npm run validate"
     }
   },
   "scripts": {
@@ -41,11 +41,9 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "validate": "run-s test:jest lint format:check",
     "clean": "shx rm -rf node_modules/ dist/",
+    "setup": "npm run build",
     "typedoc:markdown": "typedoc --out ./docs/typedoc --mode file --excludeNotExported --exclude '**/__tests__/**/*' --tsconfig ./tsconfig.json --readme none --plugin typedoc-plugin-markdown ./src/",
     "typedoc:html": "typedoc --out ./docs/typedoc --mode file --excludeNotExported --exclude '**/__tests__/**/*' --tsconfig ./tsconfig.json --readme none --plugin none ./src/",
-    "setup": "npm run build",
-    "prerelease": "run-s install setup validate",
-    "prepublishOnly": "npm run validate",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "labels:sync": "node scripts/sync_labels.js"
