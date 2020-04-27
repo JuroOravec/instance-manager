@@ -5,7 +5,7 @@ commit:
     patterns:
       # Enforce the commits to start with their conventional type.
       # Types copied from `.releaserc.yml`
-      - '^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(?:)?'
+      - '^(build|chore|ci|docs|feat|fix|improvement|perf|refactor|revert|style|test)(?:)?'
       # Require to contain reference to the related issue or explicit `no-issue`
       # Issue ref regex taken from https://zappr.readthedocs.io/en/latest/setup/#commit-messages
       - '(?:#[0-9]+)|(?:no-issue)'
