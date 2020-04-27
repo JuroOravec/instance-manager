@@ -1,3 +1,5 @@
+import debug from './lib/debug';
+
 type Constructor<T> = new (...agrs: any[]) => T;
 type Class<T> = Constructor<T>;
 type IdToClassMap<T> = Map<number, Class<T>>;
@@ -6,13 +8,19 @@ type ClassToOptionsMap<T, O> = WeakMap<Class<T>, O>;
 type IdToInstanceMap<T> = Map<number, T>;
 type ClassToIdToInstanceMap<T> = WeakMap<Class<T>, IdToInstanceMap<T>>;
 type InstanceToIdMap<T extends object> = WeakMap<T, number>;
-type ClassToInstToIdMap<T extends object> = WeakMap<Class<T>, InstanceToIdMap<T>>;
+type ClassToInstToIdMap<T extends object> = WeakMap<
+  Class<T>,
+  InstanceToIdMap<T>
+>;
 type ClassToInstCounterMap<T> = WeakMap<Class<T>, () => number>;
 
 /**
  * @hidden
  */
-type ManagerCounterMap = WeakMap<InstanceManager<any, any>, (c?: any) => number>;
+type ManagerCounterMap = WeakMap<
+  InstanceManager<any, any>,
+  (c?: any) => number
+>;
 
 /**
  * Map for storing counters for individual instances of manager
@@ -139,8 +147,10 @@ class InstanceManager<I extends {}, O> {
   // Higher API
 
   addClass(klass: Class<I>, options?: O) {
-    if (this.classToIdMap.get(klass) !== undefined) {
-      return; // class already registered
+    const klassId = this.classToIdMap.get(klass);
+    if (klassId !== undefined) {
+      debug(`Class ${klass.name} (ID: ${klassId}) is already registered.`);
+      return;
     }
     const id = classCounter(this);
     this.setClassById(id, klass);
@@ -149,6 +159,7 @@ class InstanceManager<I extends {}, O> {
       this.setClassOptions(klass, options);
     }
     this._createClassInstanceMaps(klass);
+    debug(`Registered class ${klass.name} (ID: ${id})`);
     return id;
   }
 
@@ -160,23 +171,32 @@ class InstanceManager<I extends {}, O> {
     this.classToOptionsMap.delete(klass);
     this.idToClassMap.delete(klassId);
     this.classToIdMap.delete(klass);
+    debug(`Removed class ${klass.name} (ID: ${klassId}`);
   }
 
   addInstance(instance: I) {
     const klass = instance.constructor as Class<I>;
     const klassId = this.classToIdMap.get(klass);
-    if (klassId === undefined) {
-      this.addClass(klass);
-    }
-    const instanceIdCounter = this.classToInstanceCounterMap.get(klass) as () => number;
+    if (klassId === undefined) this.addClass(klass);
+    const instanceIdCounter = this.classToInstanceCounterMap.get(
+      klass,
+    ) as () => number;
     const instanceId = instanceIdCounter();
     this.setClassInstance(instance, instanceId);
+    debug(
+      `Added instance (ID: ${instanceId}) to class ${klass.name}` +
+        `(ID: ${klassId})`,
+    );
   }
 
   removeInstance(instance: I) {
     const id = this.getInstanceId(instance);
-    if (!id) return;
+    if (!id) {
+      debug(`No instance with ID: ${id} found`);
+      return;
+    }
     this.removeClassInstance(instance, id);
+    debug(`Removed instance (ID: ${id})`);
     return true;
   }
 

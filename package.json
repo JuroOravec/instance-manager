@@ -89,5 +89,10 @@
     "typedoc-plugin-markdown": "^2.2.17",
     "typescript": "^3.8.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@types/debug": "^4.1.5",
+    "@types/read-pkg-up": "^6.0.0",
+    "debug": "^4.1.1",
+    "read-pkg-up": "^7.0.1"
+  }
 }
