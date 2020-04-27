@@ -41,6 +41,7 @@ Manage references to dynamically created classes and their instances.
 - [🤝 Contributing](#-contributing)
 - [🧙 Contributors](#-contributors)
 - [⭐ Show your support](#-show-your-support)
+- [🐙 Community](#-community)
 - [🔗 Related Projects](#-related-projects)
 - [👨‍🔧 Maintainers](#-maintainers)
 - [📝 License](#-license)
@@ -444,6 +445,12 @@ _No additional contributors. Be the first one!_
 ## ⭐ Show your support
 
 Give a ⭐️ if this project helped you!
+
+## 🐙 Community
+
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/instance-manager)
+- [Quora](https://www.quora.com/search?q=%22instance-manager%22)
+- [Spectrum community](https://spectrum.chat/instance-manager)
 
 ## 🔗 Related Projects
 
