@@ -4,7 +4,19 @@
   },
   "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
   "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+  "setupFilesAfterEnv": ["./test/setup/setup-after-env.ts"],
   "coverageDirectory": "./coverage/",
+  "coveragePathIgnorePatterns": [
+    "./node_modules/",
+    "./test",
+    "./temp",
+    "./config"
+  ],
   "collectCoverage": true,
-  "testPathIgnorePatterns": ["<rootDir>/node_modules/", "<rootDir>/dist/", "<rootDir>/coverage/"]
+  "testPathIgnorePatterns": [
+    "<rootDir>/node_modules/",
+    "<rootDir>/dist/",
+    "<rootDir>/coverage/",
+    "<rootDir>/temp/"
+  ]
 }

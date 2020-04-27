@@ -25,6 +25,7 @@ later, but your insight cannot be replaced._
 - [Contribution Guidelines](#contribution-guidelines)
   - [Hosting Service](#hosting-service)
   - [Workflow](#workflow)
+  - [Logging](#logging)
   - [Code, commit message and labeling conventions](#code-commit-message-and-labeling-conventions)
   - [Responsibilities](#responsibilities)
   - [Ways I can contribute](#ways-i-can-contribute)
@@ -196,6 +197,10 @@ We actively welcome your pull requests:
 4. Ensure the test suite passes.
 5. Make sure your code lints.
 6. Issue that pull request!
+
+### Logging
+
+See our logging strategy and the tools we use [here](logging).
 
 ### Code, commit message and labeling conventions
 
@@ -400,6 +405,7 @@ change, name/repo change, etc. -->
 [issue_labels]: https://github.com/JuroOravec/instance-manager/blob/master/docs/issue_labels.md
 [issue_labels@status]: https://github.com/JuroOravec/instance-manager/blob/master/docs/issue_labels.md#status
 [svc_and_workflow]: https://github.com/JuroOravec/instance-manager/blob/master/docs/source_control_and_workflow.md
+[logging]: https://github.com/JuroOravec/instance-manager/blob/master/docs/logging.md
 [code_of_conduct]: https://github.com/JuroOravec/instance-manager/blob/master/docs/CODE_OF_CONDUCT.md
 [pull_request_template]: https://github.com/JuroOravec/instance-manager/tree/master/docs/PULL_REQUEST_TEMPLATE.md
 [feature_request_template]: https://github.com/JuroOravec/instance-manager/blob/master/docs/ISSUE_TEMPLATE/feature_request.md

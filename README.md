@@ -1,15 +1,20 @@
 # instance-manager
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
-[![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://github.com/JuroOravec/instance-manager/tree/master/docs)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://tldrlegal.com/license/mit-license)
+[![Latest Version](https://img.shields.io/npm/v/instance-manager/latest.svg)](https://www.npmjs.com/package/instance-manager)
+[![Documentation](https://img.shields.io/badge/docs-yes-brightgreen.svg)](https://github.com/JuroOravec/instance-manager/tree/master/docs)
+[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](#-contributing)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://tldrlegal.com/license/mit-license)
+[![Package Size](https://img.shields.io/bundlephobia/min/instance-manager)](https://bundlephobia.com/result?p=instance-manager)
 
 [![Build Status](https://travis-ci.org/JuroOravec/instance-manager.svg?branch=master)](https://travis-ci.org/JuroOravec/instance-manager)
-[![codecov](https://codecov.io/gh/JuroOravec/instance-manager/branch/master/graph/badge.svg)](https://codecov.io/gh/JuroOravec/instance-manager)
+![Dependencies](https://david-dm.org/JuroOravec/instance-manager.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/JuroOravec/instance-manager/badge.svg)](https://snyk.io/test/github/JuroOravec/instance-manager)
+[![CodeCov](https://codecov.io/gh/JuroOravec/instance-manager/branch/master/graph/badge.svg)](https://codecov.io/gh/JuroOravec/instance-manager)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/JuroOravec/instance-manager.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/JuroOravec/instance-manager/alerts/)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/JuroOravec/instance-manager.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/JuroOravec/instance-manager/context:javascript)
 [![Maintainability](https://api.codeclimate.com/v1/badges/eaaa39ef8e79f8d2805a/maintainability)](https://codeclimate.com/github/JuroOravec/instance-manager/maintainability)
+
+---
 
 <!--
 One-liner explaining the purpose of the module
@@ -36,6 +41,7 @@ Manage references to dynamically created classes and their instances.
 - [🤝 Contributing](#-contributing)
 - [🧙 Contributors](#-contributors)
 - [⭐ Show your support](#-show-your-support)
+- [🐙 Community](#-community)
 - [🔗 Related Projects](#-related-projects)
 - [👨‍🔧 Maintainers](#-maintainers)
 - [📝 License](#-license)
@@ -440,6 +446,12 @@ _No additional contributors. Be the first one!_
 
 Give a ⭐️ if this project helped you!
 
+## 🐙 Community
+
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/instance-manager)
+- [Quora](https://www.quora.com/search?q=%22instance-manager%22)
+- [Spectrum community](https://spectrum.chat/instance-manager)
+
 ## 🔗 Related Projects
 
 - [ploadin](https://github.com/JuroOravec/ploadin) - Webpack plugin and loader
@@ -456,6 +468,7 @@ Give a ⭐️ if this project helped you!
 - Twitter: [@JuroOravec](https://twitter.com/JuroOravec)
 - GitHub: [@JuroOravec](https://github.com/JuroOravec)
 - LinkedIn: [@jurooravec](https://linkedin.com/in/jurooravec)
+- Sourcerer: [@JuroOravec](https://sourcerer.io/jurooravec)
 
 ## 📝 License
 
