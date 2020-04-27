@@ -532,8 +532,20 @@ making that wrong decision in our project.
 
 To update the labels in your project, use tools like
 [github-label-sync](https://github.com/Financial-Times/github-label-sync).
-To use it, you will need the access token. Install the package (locally or
-globally), and run:
+To use it, you will need the access token.
+
+### Update Labels Script
+
+A convenient way to update the labels is to run `npm run labels:sync`. This
+will search the repo for relevant info, will prompt you to confirm/update it,
+and will run `github-label-sync` for you.
+
+This is the preferred way as the script accepts both JSON and YAML files (YAML
+files must have `.yml` or `yaml` extension).
+
+### CLI
+
+Alternatively, you can interact with `github-label-sync` directly through CLI.
 
 ```bash
 # replace token value, username and repo
@@ -546,9 +558,11 @@ npx github-label-sync --access-token 0123456789abcdefghijklmnopqrstuvwxyz1234 us
 This will update (**AND OVERWRITE**) the labels in your repo with the labels
 defined in `labels.json`.
 
-Note: Once
+Note: Out of the box `github-label-sync` supports only JSON files. Once
 [this pull request is integrated](https://github.com/Financial-Times/github-label-sync/pull/47),
-use YAML insteado of JSON.
+use YAML instead of JSON.
+
+### Labels in YAML
 
 For more details see
 [github-label-sync](https://github.com/Financial-Times/github-label-sync).

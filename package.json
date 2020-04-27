@@ -47,7 +47,8 @@
     "prerelease": "run-s install setup validate",
     "prepublishOnly": "npm run validate",
     "contributors:add": "all-contributors add",
-    "contributors:generate": "all-contributors generate"
+    "contributors:generate": "all-contributors generate",
+    "labels:sync": "node scripts/sync_labels.js"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
