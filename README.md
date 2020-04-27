@@ -24,7 +24,7 @@ Manage references to dynamically created classes and their instances.
 
 <!-- markdownlint-disable -->
 
-#### 🏠 [Homepage](https://github.com/JuroOravec/instance-manager#readme) | 🗃 [Repository](https://github.com/JuroOravec/instance-manager) | 📚 [Documentation](https://github.com/JuroOravec/instance-manager/tree/master/docs) | 🐛 [Issue Tracker](https://github.com/JuroOravec/instance-manager/issues)
+#### 🏠 [Homepage](https://github.com/JuroOravec/instance-manager#readme) | 🗃 [Repository](https://github.com/JuroOravec/instance-manager) | 📦 [NPM](https://www.npmjs.com/package/instance-manager) | 📚 [Documentation](https://github.com/JuroOravec/instance-manager/tree/master/docs) | 🐛 [Issue Tracker](https://github.com/JuroOravec/instance-manager/issues)
 
 <!-- markdownlint-enable -->
 
