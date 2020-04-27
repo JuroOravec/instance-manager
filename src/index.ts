@@ -36,7 +36,7 @@ const classCounter = <T extends InstanceManager<any, any>>(instance: T) => {
   return counter();
 };
 
-class InstanceManager<I extends {}, O> {
+class InstanceManager<I extends {} = any, O = any> {
   // Maps that store the state of registered classes and instances
 
   // {classId -> class}
