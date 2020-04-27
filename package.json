@@ -34,7 +34,7 @@
     "watch": "tsc --watch",
     "test": "npm run test:cov",
     "test:cov": "run-s test:jest codecov:upload",
-    "test:jest": "jest --config jestconfig.json",
+    "test:jest": "jest --config jestconfig.json --detectOpenHandles",
     "codecov:upload": "dotenv bash scripts/upload_codecov.sh",
     "format": "prettier --write 'src/**/*.{ts,js}'",
     "format:check": "prettier --check 'src/**/*.{ts,js}'",
