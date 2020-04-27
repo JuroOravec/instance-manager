@@ -36,7 +36,7 @@ const classCounter = <T extends InstanceManager<any, any>>(instance: T) => {
   return counter();
 };
 
-class InstanceManager<I extends {}, O> {
+class InstanceManager<I extends {} = any, O = any> {
   // Maps that store the state of registered classes and instances
 
   // {classId -> class}
@@ -67,14 +67,17 @@ class InstanceManager<I extends {}, O> {
     return this.idToClassMap.set(id, klass);
   }
 
-  getClassId(klass: Class<I>) {
-    this.classToIdMap.get(klass);
+  getClassId(classOrInstance: I | Class<I>) {
+    const klass = this.resolveClass(classOrInstance);
+    return this.classToIdMap.get(klass);
   }
-  setClassId(id: number, klass: Class<I>) {
+  setClassId(id: number, classOrInstance: I | Class<I>) {
+    const klass = this.resolveClass(classOrInstance);
     this.classToIdMap.set(klass, id);
   }
 
-  getClassOptions(klass: Class<I>) {
+  getClassOptions(classOrInstance: I | Class<I>) {
+    const klass = this.resolveClass(classOrInstance);
     const klassOptions = this.classToOptionsMap.get(klass);
     if (!klassOptions) return;
     return Object.assign({}, klassOptions);
@@ -86,7 +89,8 @@ class InstanceManager<I extends {}, O> {
     }
     return this.getClassOptions(klass);
   }
-  setClassOptions(klass: Class<I>, options: O) {
+  setClassOptions(classOrInstance: I | Class<I>, options: O) {
+    const klass = this.resolveClass(classOrInstance);
     this.classToOptionsMap.set(klass, options);
   }
   setClassOptionsById(id: number, options: O) {
@@ -97,14 +101,23 @@ class InstanceManager<I extends {}, O> {
     this.classToOptionsMap.set(klass, options);
   }
 
-  getClassInstance(klass: Class<I>, instanceId: number) {
+  resolveClass(classOrInstance: I | Class<I>) {
+    // If class was contructed using the class syntax, it's constructor should
+    // be a function, while its instances will have the class name as
+    // constructor's name
+    return (classOrInstance.constructor.name === 'Function'
+      ? classOrInstance
+      : classOrInstance.constructor) as Class<I>;
+  }
+
+  getClassInstance(classOrInstance: I | Class<I>, instanceId: number) {
+    const klass = this.resolveClass(classOrInstance);
     const instanceMap = this.classToIdToInstanceMap.get(klass);
     if (!instanceMap) return;
     return instanceMap.get(instanceId);
   }
   setClassInstance(instance: I, instanceId: number) {
     const klass = instance.constructor as Class<I>;
-
     // set {class -> {instanceId -> instance}}
     const instanceMap = this.classToIdToInstanceMap.get(klass);
     if (!instanceMap) {
@@ -119,9 +132,9 @@ class InstanceManager<I extends {}, O> {
     }
     instanceIdMap.set(instance, instanceId);
   }
-  removeClassInstance(instance: I, instanceId: number) {
-    const klass = instance.constructor as Class<I>;
-
+  removeClassInstance(classOrInstance: I | Class<I>, instanceId: number) {
+    const klass = this.resolveClass(classOrInstance);
+    const instance = this.getClassInstance(klass, instanceId);
     // remove inner map of {class -> {instanceId -> instance}}
     const instanceMap = this.classToIdToInstanceMap.get(klass);
     if (!instanceMap) {
@@ -134,7 +147,7 @@ class InstanceManager<I extends {}, O> {
     if (!instanceIdMap) {
       throw Error(`No instance->id map found for class ${klass}`);
     }
-    instanceIdMap.delete(instance);
+    instanceIdMap.delete(instance!);
   }
 
   getInstanceId(instance: I) {
@@ -146,13 +159,14 @@ class InstanceManager<I extends {}, O> {
 
   // Higher API
 
-  addClass(klass: Class<I>, options?: O) {
+  addClass(classOrInstance: I | Class<I>, options?: O) {
+    const klass = this.resolveClass(classOrInstance);
     const klassId = this.classToIdMap.get(klass);
     if (klassId !== undefined) {
       debug(`Class ${klass.name} (ID: ${klassId}) is already registered.`);
       return;
     }
-    const id = classCounter(this);
+    const id = classCounter(this) as number;
     this.setClassById(id, klass);
     this.setClassId(id, klass);
     if (options !== undefined) {
@@ -165,13 +179,16 @@ class InstanceManager<I extends {}, O> {
 
   // Note that this function only removes the class from the maps.
   // It does not delete the class nor its instances.
-  removeClass(klass: Class<I>) {
+  removeClass(classOrInstance: I | Class<I>) {
+    const klass = this.resolveClass(classOrInstance);
     const klassId = this.classToIdMap.get(klass) as number;
+    if (klassId === undefined) return false;
     this._removeClassInstanceMaps(klass);
     this.classToOptionsMap.delete(klass);
     this.idToClassMap.delete(klassId);
     this.classToIdMap.delete(klass);
     debug(`Removed class ${klass.name} (ID: ${klassId}`);
+    return true;
   }
 
   addInstance(instance: I) {
@@ -187,13 +204,14 @@ class InstanceManager<I extends {}, O> {
       `Added instance (ID: ${instanceId}) to class ${klass.name}` +
         `(ID: ${klassId})`,
     );
+    return instanceId;
   }
 
   removeInstance(instance: I) {
     const id = this.getInstanceId(instance);
     if (!id) {
       debug(`No instance with ID: ${id} found`);
-      return;
+      return false;
     }
     this.removeClassInstance(instance, id);
     debug(`Removed instance (ID: ${id})`);

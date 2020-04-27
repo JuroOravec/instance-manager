@@ -40,6 +40,7 @@
 * [removeClass](instancemanager.md#removeclass)
 * [removeClassInstance](instancemanager.md#removeclassinstance)
 * [removeInstance](instancemanager.md#removeinstance)
+* [resolveClass](instancemanager.md#resolveclass)
 * [setClassById](instancemanager.md#setclassbyid)
 * [setClassId](instancemanager.md#setclassid)
 * [setClassInstance](instancemanager.md#setclassinstance)
@@ -52,7 +53,7 @@
 
 \+ **new InstanceManager**(): *[InstanceManager](instancemanager.md)*
 
-*Defined in [index.ts:55](https://github.com/JuroOravec/instance-manager/blob/e759c2d/src/index.ts#L55)*
+*Defined in [index.ts:55](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L55)*
 
 **Returns:** *[InstanceManager](instancemanager.md)*
 
@@ -62,7 +63,7 @@
 
 • **classToIdMap**: *[ClassToIdMap](../README.md#classtoidmap)‹I›* = new Map()
 
-*Defined in [index.ts:46](https://github.com/JuroOravec/instance-manager/blob/e759c2d/src/index.ts#L46)*
+*Defined in [index.ts:46](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L46)*
 
 ___
 
@@ -70,7 +71,7 @@ ___
 
 • **classToIdToInstanceMap**: *[ClassToIdToInstanceMap](../README.md#classtoidtoinstancemap)‹I›* = new WeakMap()
 
-*Defined in [index.ts:50](https://github.com/JuroOravec/instance-manager/blob/e759c2d/src/index.ts#L50)*
+*Defined in [index.ts:50](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L50)*
 
 ___
 
@@ -78,7 +79,7 @@ ___
 
 • **classToInstanceCounterMap**: *[ClassToInstCounterMap](../README.md#classtoinstcountermap)‹I›* = new WeakMap()
 
-*Defined in [index.ts:55](https://github.com/JuroOravec/instance-manager/blob/e759c2d/src/index.ts#L55)*
+*Defined in [index.ts:55](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L55)*
 
 ___
 
@@ -86,7 +87,7 @@ ___
 
 • **classToInstanceToIdMap**: *[ClassToInstToIdMap](../README.md#classtoinsttoidmap)‹I›* = new WeakMap()
 
-*Defined in [index.ts:53](https://github.com/JuroOravec/instance-manager/blob/e759c2d/src/index.ts#L53)*
+*Defined in [index.ts:53](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L53)*
 
 ___
 
@@ -94,7 +95,7 @@ ___
 
 • **classToOptionsMap**: *[ClassToOptionsMap](../README.md#classtooptionsmap)‹I, O›* = new WeakMap()
 
-*Defined in [index.ts:48](https://github.com/JuroOravec/instance-manager/blob/e759c2d/src/index.ts#L48)*
+*Defined in [index.ts:48](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L48)*
 
 ___
 
@@ -102,32 +103,32 @@ ___
 
 • **idToClassMap**: *[IdToClassMap](../README.md#idtoclassmap)‹I›* = new Map()
 
-*Defined in [index.ts:43](https://github.com/JuroOravec/instance-manager/blob/e759c2d/src/index.ts#L43)*
+*Defined in [index.ts:43](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L43)*
 
 ## Methods
 
 ###  addClass
 
-▸ **addClass**(`klass`: [Class](../README.md#class)‹I›, `options?`: O): *any*
+▸ **addClass**(`classOrInstance`: I | [Class](../README.md#class)‹I›, `options?`: O): *undefined | number*
 
-*Defined in [index.ts:149](https://github.com/JuroOravec/instance-manager/blob/e759c2d/src/index.ts#L149)*
+*Defined in [index.ts:162](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L162)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`klass` | [Class](../README.md#class)‹I› |
+`classOrInstance` | I &#124; [Class](../README.md#class)‹I› |
 `options?` | O |
 
-**Returns:** *any*
+**Returns:** *undefined | number*
 
 ___
 
 ###  addInstance
 
-▸ **addInstance**(`instance`: I): *void*
+▸ **addInstance**(`instance`: I): *number*
 
-*Defined in [index.ts:177](https://github.com/JuroOravec/instance-manager/blob/e759c2d/src/index.ts#L177)*
+*Defined in [index.ts:194](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L194)*
 
 **Parameters:**
 
@@ -135,7 +136,7 @@ Name | Type |
 ------ | ------ |
 `instance` | I |
 
-**Returns:** *void*
+**Returns:** *number*
 
 ___
 
@@ -143,7 +144,7 @@ ___
 
 ▸ **getClassById**(`id`: number): *undefined | object*
 
-*Defined in [index.ts:63](https://github.com/JuroOravec/instance-manager/blob/e759c2d/src/index.ts#L63)*
+*Defined in [index.ts:63](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L63)*
 
 **Parameters:**
 
@@ -157,31 +158,31 @@ ___
 
 ###  getClassId
 
-▸ **getClassId**(`klass`: [Class](../README.md#class)‹I›): *void*
+▸ **getClassId**(`classOrInstance`: I | [Class](../README.md#class)‹I›): *undefined | number*
 
-*Defined in [index.ts:70](https://github.com/JuroOravec/instance-manager/blob/e759c2d/src/index.ts#L70)*
+*Defined in [index.ts:70](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L70)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`klass` | [Class](../README.md#class)‹I› |
+`classOrInstance` | I &#124; [Class](../README.md#class)‹I› |
 
-**Returns:** *void*
+**Returns:** *undefined | number*
 
 ___
 
 ###  getClassInstance
 
-▸ **getClassInstance**(`klass`: [Class](../README.md#class)‹I›, `instanceId`: number): *undefined | I*
+▸ **getClassInstance**(`classOrInstance`: I | [Class](../README.md#class)‹I›, `instanceId`: number): *undefined | I*
 
-*Defined in [index.ts:100](https://github.com/JuroOravec/instance-manager/blob/e759c2d/src/index.ts#L100)*
+*Defined in [index.ts:113](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L113)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`klass` | [Class](../README.md#class)‹I› |
+`classOrInstance` | I &#124; [Class](../README.md#class)‹I› |
 `instanceId` | number |
 
 **Returns:** *undefined | I*
@@ -190,15 +191,15 @@ ___
 
 ###  getClassOptions
 
-▸ **getClassOptions**(`klass`: [Class](../README.md#class)‹I›): *undefined | object & O*
+▸ **getClassOptions**(`classOrInstance`: I | [Class](../README.md#class)‹I›): *undefined | object & O*
 
-*Defined in [index.ts:77](https://github.com/JuroOravec/instance-manager/blob/e759c2d/src/index.ts#L77)*
+*Defined in [index.ts:79](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L79)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`klass` | [Class](../README.md#class)‹I› |
+`classOrInstance` | I &#124; [Class](../README.md#class)‹I› |
 
 **Returns:** *undefined | object & O*
 
@@ -208,7 +209,7 @@ ___
 
 ▸ **getClassOptionsById**(`id`: number): *undefined | object & O*
 
-*Defined in [index.ts:82](https://github.com/JuroOravec/instance-manager/blob/e759c2d/src/index.ts#L82)*
+*Defined in [index.ts:85](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L85)*
 
 **Parameters:**
 
@@ -224,7 +225,7 @@ ___
 
 ▸ **getInstanceId**(`instance`: I): *undefined | number*
 
-*Defined in [index.ts:140](https://github.com/JuroOravec/instance-manager/blob/e759c2d/src/index.ts#L140)*
+*Defined in [index.ts:153](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L153)*
 
 **Parameters:**
 
@@ -238,31 +239,31 @@ ___
 
 ###  removeClass
 
-▸ **removeClass**(`klass`: [Class](../README.md#class)‹I›): *void*
+▸ **removeClass**(`classOrInstance`: I | [Class](../README.md#class)‹I›): *boolean*
 
-*Defined in [index.ts:168](https://github.com/JuroOravec/instance-manager/blob/e759c2d/src/index.ts#L168)*
+*Defined in [index.ts:182](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L182)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`klass` | [Class](../README.md#class)‹I› |
+`classOrInstance` | I &#124; [Class](../README.md#class)‹I› |
 
-**Returns:** *void*
+**Returns:** *boolean*
 
 ___
 
 ###  removeClassInstance
 
-▸ **removeClassInstance**(`instance`: I, `instanceId`: number): *void*
+▸ **removeClassInstance**(`classOrInstance`: I | [Class](../README.md#class)‹I›, `instanceId`: number): *void*
 
-*Defined in [index.ts:122](https://github.com/JuroOravec/instance-manager/blob/e759c2d/src/index.ts#L122)*
+*Defined in [index.ts:135](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L135)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`instance` | I |
+`classOrInstance` | I &#124; [Class](../README.md#class)‹I› |
 `instanceId` | number |
 
 **Returns:** *void*
@@ -271,9 +272,9 @@ ___
 
 ###  removeInstance
 
-▸ **removeInstance**(`instance`: I): *undefined | true*
+▸ **removeInstance**(`instance`: I): *boolean*
 
-*Defined in [index.ts:192](https://github.com/JuroOravec/instance-manager/blob/e759c2d/src/index.ts#L192)*
+*Defined in [index.ts:210](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L210)*
 
 **Parameters:**
 
@@ -281,7 +282,23 @@ Name | Type |
 ------ | ------ |
 `instance` | I |
 
-**Returns:** *undefined | true*
+**Returns:** *boolean*
+
+___
+
+###  resolveClass
+
+▸ **resolveClass**(`classOrInstance`: I | [Class](../README.md#class)‹I›): *object*
+
+*Defined in [index.ts:104](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L104)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`classOrInstance` | I &#124; [Class](../README.md#class)‹I› |
+
+**Returns:** *object*
 
 ___
 
@@ -289,7 +306,7 @@ ___
 
 ▸ **setClassById**(`id`: number, `klass`: [Class](../README.md#class)‹I›): *Map‹number, object›*
 
-*Defined in [index.ts:66](https://github.com/JuroOravec/instance-manager/blob/e759c2d/src/index.ts#L66)*
+*Defined in [index.ts:66](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L66)*
 
 **Parameters:**
 
@@ -304,16 +321,16 @@ ___
 
 ###  setClassId
 
-▸ **setClassId**(`id`: number, `klass`: [Class](../README.md#class)‹I›): *void*
+▸ **setClassId**(`id`: number, `classOrInstance`: I | [Class](../README.md#class)‹I›): *void*
 
-*Defined in [index.ts:73](https://github.com/JuroOravec/instance-manager/blob/e759c2d/src/index.ts#L73)*
+*Defined in [index.ts:74](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L74)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `id` | number |
-`klass` | [Class](../README.md#class)‹I› |
+`classOrInstance` | I &#124; [Class](../README.md#class)‹I› |
 
 **Returns:** *void*
 
@@ -323,7 +340,7 @@ ___
 
 ▸ **setClassInstance**(`instance`: I, `instanceId`: number): *void*
 
-*Defined in [index.ts:105](https://github.com/JuroOravec/instance-manager/blob/e759c2d/src/index.ts#L105)*
+*Defined in [index.ts:119](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L119)*
 
 **Parameters:**
 
@@ -338,15 +355,15 @@ ___
 
 ###  setClassOptions
 
-▸ **setClassOptions**(`klass`: [Class](../README.md#class)‹I›, `options`: O): *void*
+▸ **setClassOptions**(`classOrInstance`: I | [Class](../README.md#class)‹I›, `options`: O): *void*
 
-*Defined in [index.ts:89](https://github.com/JuroOravec/instance-manager/blob/e759c2d/src/index.ts#L89)*
+*Defined in [index.ts:92](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L92)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`klass` | [Class](../README.md#class)‹I› |
+`classOrInstance` | I &#124; [Class](../README.md#class)‹I› |
 `options` | O |
 
 **Returns:** *void*
@@ -357,7 +374,7 @@ ___
 
 ▸ **setClassOptionsById**(`id`: number, `options`: O): *void*
 
-*Defined in [index.ts:92](https://github.com/JuroOravec/instance-manager/blob/e759c2d/src/index.ts#L92)*
+*Defined in [index.ts:96](https://github.com/JuroOravec/instance-manager/blob/e498de9/src/index.ts#L96)*
 
 **Parameters:**
 
