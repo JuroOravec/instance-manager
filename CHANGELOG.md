@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/JuroOravec/instance-manager/compare/v1.0.3...v1.1.0) (2020-04-27)
+
+
+### Features
+
+* add resolveClass method, friendlier signatures, add returns ([e498de9](https://github.com/JuroOravec/instance-manager/commit/e498de95c97484cdd4a3bc3359ffbffd1c1fce3a))
+
 ## [1.0.3](https://github.com/JuroOravec/instance-manager/compare/v1.0.2...v1.0.3) (2020-04-27)
 
 ## [1.0.2](https://github.com/JuroOravec/instance-manager/compare/v1.0.1...v1.0.2) (2020-04-15)
