@@ -1,4 +1,11 @@
-sudo: false
+os: linux
+dist: xenial
+
+branches:
+  only:
+    - master
+  except:
+    - /temp\/.*/
 
 language: node_js
 node_js:
@@ -26,6 +33,8 @@ before_install:
   - git config --global user.signingkey ${GPG_KEY_ID}
 install:
   - npm install
+  # Remove installation side effects (like updated package-lock.json)
+  - git reset --hard HEAD
 before_script:
   - npm run setup
 script:
@@ -38,12 +47,18 @@ jobs:
       node_js: lts/*
       script:
         - npm run test:cov
+
+    - stage: update CHANGELOG.md
+      if: type = pull_request
+      node_js: lts/*
+      script: npx semantic-release # runs with PR-specific config
+
     - stage: release
       node_js: lts/*
       script: ':' # noop, skips tests
       deploy:
+        edge: true
         provider: script
-        skip_cleanup: true
         script: npx semantic-release
         on:
           # Branch selection is managed by semantic-release in .releaserc.yml
@@ -70,3 +85,7 @@ env:
     - secure: LzvraQQo4XPQDSonqZmZ5nVD08BF3XC1kkjEjtFD+7LdiUu622zhr3g38OZH/7c2Q7hZ6EXoyGM08NK1uktNkXMP5xS87AcBU3j477wpkweXEo67AwaKNmuKzI8Ng5sO8ausr+I/PUotIDzEszSe00DOn6RA/SSr2bR8g1/dId4vKHBPWNCfpeFKclE0mI3CV4TRlX5E0kinqghgm3CrfZeRzfzwwAf+cdcH9UCHwgIUnoWq2DnHpLcX6aztPdl/eeBi9O5Hvi8fy8Z+IF5IoqkDALy80+uMWn2JprlVOaZt6NanUsHtRYVEqRJIBO5Y40Os9MhZl5L3jhhBsT30NfPVFbvy8vo5wHmIwiuwAnjYyfOGAFMpKncXaOyTi5Jfagr10vkFqL0hpfQp0rgsHLtrkg4NWSJf73lJt4T/Gmrh80CkpbfboEcI4ThAOYTydrI4B1ckrSkP1xP8vuOKBS/o+qcepOp73NCBGGS+9jkOEWHumbCXttTmU96GPqrWpFQ0HxLhu5dTKTrjXvIxtM1xVaSBtuzMyCPkikjZh/YNfCUhJq9RKqZ1ZRUF/0WX5aAaQbunu8wDy/qyHRqKa8BSUw3SRpPJ208eMExKHdY7XtQamQ2J+aM/mTAQ03K+UIk6trMMxYMQc2r2gUuH8APoUqkKk+ERxFWLRkj+eT8=
     # GIT_USERNAME
     - secure: F7W49pqv4qH2z/hMyYLkJ+JDUhJEOqSuYFgqAgYraQpsJbxHaBQZmeySMqF4Ca1hUARVwM0bN/Kxx6MOdOOdKPk7bOgnOyPM6mS1mSFxRZIoCezMCDhebOaoMOQ8+s2FXb23vajuEXoaj+OSS347DzGW0TjJ/vzZRatycjzrQFWMmEme5lZcMgR4JBiSjtl05heyxSRMLLfEqB5GKPjJC58BMtuls5lTL3RpTqNNj2kbG09oE5lutsR+cVGSGmryCB/OJvw03ev93poE/L4XP60Z63hCxWo64+AV8W4gMU6Ce5N9FDxiagn/0nHNExwxHmOtFrmAsDZqP16oYQobv5HSDfx0aRU/suW1/wZQmp/PqMN4ue4nlQp+Skp+SR0pJu9RRuh+8W+YuXZJGju6zI2nnViSxQRAIXXegCGrrHg8Anx+qPbkcBiPTNN03OhsVmYnmPyRLvUVwVu8jQcFaXM1UHNr91enKea2PBbx5l2OCVPur4vQ1fy67QEJ3tM2CbkSuolJSvQdQ9iQPD5kK6iEh06lIFg2qLTRm0UsyX4eUCzP3c7UvfD5h7E/fQ2Ztgsl8cB1d4SSX1MmWoA2rm2ch6IECj9lozLguLHphz6X9Vvp8OZxWNLe3KcEXL+kVTs5r4kIiMF0QIyTMNx2bSa6qGADPJE4jLMyPxbuCtg=
+    # GIT_COMMITTER_NAME (to have signed commits from semantic-release)
+    - secure: FRZ2yRVgFDZ1Z/dEtN89GGtug+rJrbJRUhO/cLNuJ4FEaTQuoSWiVYCrtDhB2F/Jz0apuyMESG1ABMwja0sR+onPTWW0iwGj9RDNJrzpOmWhgI1bHjDs1dseQsxhpBeQcO2Vf6CUWlWLo3sn0S5+tiOLsAvjcEsvYAwuYyURQowecWz10TghjbljLS4s9eAUEVvub/tWwAlaGEWBukuk/kab7kRJGXGOZLDvLiF7ALW9G/j+I5qA5hmejtWKOxj89dYW4V4z4sJH62ccPTht0eQFIBPmkX0akDpe+tQfiajsFbbvsNFLN+Y/tU/izcmeCGyH8lOH9VaenN1TtDKa0/q2v09b/666fb5G9UV+Xy+WbdvwF9yEOv6eYMyw1B2CVL7cbP6zsBaRFKUvUaXpRUFcpGN6jtNtBEt55VGb9jSprtISeyPR1WDlrSWYOcjs3KMQha1hGwRxXejkiKrRilSXFPGJfRvJBTPnWMRIUqTSiME56sLm2mJKXvlNV+nKdScYtcVIhIe0Pr3ZZhwTeTrIU9AmDfQD9Z6j+uxvhZyhJUZn1BL2j7WF5dVDsu5vWo76SoBhyd6laEYBdYg81JnYpgeCfrZDeLBqPCFpiswA6UwXEDzhcKKHVmX9u5yMyP5bcPQgveCj0j2FNbFdl8RNkBsWxiSAU3lp4h82KCA=
+    # GIT_COMMITTER_EMAIL (to have signed commits from semantic-release)
+    - secure: pqooP9t3unXMCKwk6qhnL52WTSy1jib7OrJlIJBYyNHzRUeL5IMLo6CBt5ml1/1+KRbofwZt21Xt+FX6HDj+hNt+gs+vJwQy2ZJjGSbaKJUR+NJZQkuQfVOGjj5HYPqTTJZj3FLopFUBBApFL9OKbMpYdN3mUAB49n6RKSbstk+f2/qCkgg2qJZn9To4YEBr4Ckg2drQX59UorNbw3XSSqqFahMJLDzZ2g6glmXS99+aDuRreVxyJjRrJWqpv7xdNjCy+jQ/ecO/bEuq3Czr6pVI//yNBCQU5OIUHTtQ2nXmefKZzPAtLKePWxZKnh9KaEDGitIgOrj5w4jEWeIxiRqqD4+T2vLvq7vKHaHf+fSvXvxrrVvI1bcAwG4aM3+Gg1C504POA91SAW0wgSyzp0sjMrSrT1VuSSESsc1Q02tSOM2ug3nF0Z+KQg5w9f+kw5MVwCIwt+W0WfIFrb8/WdKOhtZtrkWrLTtpNU4X/11gMuGBHaw5xq07xClZxnpF1KEcXBJyEZ8YTssQ5a97pRooN7BcIVbPy/Y0wk8sJjm6JflulSGLctus+kudHmcPBHNB8jVDD/aZ3NzAF71tQx7eOI/LeIG9oFmhGJHHrzDoaVbKu31fSwV77L2orsOZB6bDif41/2GP0vQ8ZCQzX3cfarW+BV9rkA3/ZFbGjXE=
