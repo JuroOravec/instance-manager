@@ -4,7 +4,10 @@
   },
   "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
   "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
-  "setupFilesAfterEnv": ["./test/setup/setup-after-env.ts"],
+  "setupFilesAfterEnv": [
+    "./test/setup/after-env/print-async-setup-errors.ts",
+    "./test/setup/after-env/describe-skip.ts"
+  ],
   "coverageDirectory": "./coverage/",
   "coveragePathIgnorePatterns": [
     "./node_modules/",
