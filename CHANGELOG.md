@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/JuroOravec/instance-manager/compare/v1.1.1...v1.1.2) (2020-05-03)
+
+
+### Bug Fixes
+
+* **logging:** fix package name detection by debug ([d1ea39c](https://github.com/JuroOravec/instance-manager/commit/d1ea39ce8b93be95e71201034e80d55b5d2f2ebe))
+
 ## [1.1.1](https://github.com/JuroOravec/instance-manager/compare/v1.1.0...v1.1.1) (2020-04-27)
 
 # [1.1.0](https://github.com/JuroOravec/instance-manager/compare/v1.0.3...v1.1.0) (2020-04-27)
