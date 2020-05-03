@@ -1,4 +1,4 @@
-import debug from 'debug';
+import debugPkg from 'debug';
 import readPkgUp from 'read-pkg-up';
 
 function getDebugLogger() {
@@ -10,9 +10,9 @@ function getDebugLogger() {
     );
     return console.log;
   }
-  return debug(name);
+  return debugPkg(name);
 }
 
-const mainDebug = getDebugLogger();
+const debug = getDebugLogger();
 
-export default mainDebug;
+export default debug;
