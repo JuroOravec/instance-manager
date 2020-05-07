@@ -21,6 +21,7 @@
       "path": "cz-conventional-changelog"
     }
   },
+  "snyk": true,
   "husky": {
     "hooks": {
       "pre-commit": "git-authors-cli && run-s lint format:check",
@@ -40,11 +41,15 @@
     "format:check": "prettier --check 'src/**/*.{ts,js}'",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "lint:check": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "validate": "run-s test:jest lint:check format:check",
+    "validate": "run-s test:jest lint:check format:check snyk:test",
     "clean": "shx rm -rf node_modules/ dist/",
     "setup": "npm run build",
+    "prepare": "npm run snyk:protect",
+    "prepublishOnly": "npm run snyk:protect",
     "typedoc:markdown": "typedoc --out ./docs/typedoc --mode file --excludeNotExported --exclude '**/__tests__/**/*' --tsconfig ./tsconfig.json --readme none --plugin typedoc-plugin-markdown ./src/",
     "typedoc:html": "typedoc --out ./docs/typedoc --mode file --excludeNotExported --exclude '**/__tests__/**/*' --tsconfig ./tsconfig.json --readme none --plugin none ./src/",
+    "snyk:protect": "snyk protect",
+    "snyk:test": "snyk test",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "labels:sync": "node scripts/sync_labels.js"
@@ -81,6 +86,7 @@
     "semantic-release-cli": "^5.2.3",
     "semantic-release-verify-deps": "^1.0.2",
     "shx": "^0.3.2",
+    "snyk": "^1.319.1",
     "standard-version": "^7.1.0",
     "ts-jest": "^25.3.1",
     "typedoc": "^0.17.4",
