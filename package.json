@@ -1,6 +1,6 @@
 {
   "name": "instance-manager",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Manage references to dynamically created classes and their instances.",
   "homepage": "https://github.com/JuroOravec/instance-manager#readme",
   "repository": "github:JuroOravec/instance-manager",
