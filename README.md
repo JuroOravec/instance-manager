@@ -141,7 +141,7 @@ const im = new InstanceManager();
 // Import the package
 const InstanceManager = require('instance-manager');
 
-// Instanciate
+// Instantiate
 const im = new InstanceManager();
 
 // Class factory that creates a class based on passed options
