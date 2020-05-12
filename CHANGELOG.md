@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/JuroOravec/instance-manager/compare/v1.1.3...v1.1.4) (2020-05-12)
+
+
+### Bug Fixes
+
+* fix require-based default import ([1567110](https://github.com/JuroOravec/instance-manager/commit/1567110734d9b68dc34d59efd4e8867f4332c810))
+
 ## [1.1.2](https://github.com/JuroOravec/instance-manager/compare/v1.1.1...v1.1.2) (2020-05-03)
 
 
