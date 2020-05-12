@@ -1,3 +1,10 @@
+## [1.1.5](https://github.com/JuroOravec/instance-manager/compare/v1.1.4...v1.1.5) (2020-05-12)
+
+
+### Bug Fixes
+
+* revert import change, document proper import instead ([7cb999d](https://github.com/JuroOravec/instance-manager/commit/7cb999d36518aa9dfd6ff2d543bde1ef95ade05e))
+
 ## [1.1.4](https://github.com/JuroOravec/instance-manager/compare/v1.1.3...v1.1.4) (2020-05-12)
 
 
