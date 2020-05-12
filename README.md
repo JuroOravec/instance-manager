@@ -116,7 +116,7 @@ npm install instance-manager
 Then in your file
 
 ```js
-const InstanceManager = require('instance-manager');
+const InstanceManager = require('instance-manager').default;
 const im = new InstanceManager();
 ```
 

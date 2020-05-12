@@ -270,5 +270,3 @@ function createCounter(incrementor: (c: number) => number = (c) => c + 1) {
 }
 
 export default InstanceManager;
-
-module.exports = InstanceManager;
