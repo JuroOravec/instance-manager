@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/JuroOravec/instance-manager/compare/v1.1.5...v1.1.6) (2020-06-10)
+
+
+### Bug Fixes
+
+* upgrade debug from 4.1.1 to 4.2.0 ([7d490b7](https://github.com/JuroOravec/instance-manager/commit/7d490b77541980b9b18f2f8e5fcbbd80393650ee))
+
 ## [1.1.5](https://github.com/JuroOravec/instance-manager/compare/v1.1.4...v1.1.5) (2020-05-12)
 
 
