@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/JuroOravec/instance-manager/compare/v1.1.5...v1.1.6) (2020-07-07)
+
+
+### Bug Fixes
+
+* **deps:** [security] bump npm-registry-fetch from 4.0.3 to 4.0.5 ([f118b28](https://github.com/JuroOravec/instance-manager/commit/f118b288904a34754678b503821fd4ecfce72d77))
+
 ## [1.1.5](https://github.com/JuroOravec/instance-manager/compare/v1.1.4...v1.1.5) (2020-05-12)
 
 
