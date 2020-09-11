@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/JuroOravec/instance-manager/compare/v1.1.5...v1.1.6) (2020-09-11)
+
+
+### Bug Fixes
+
+* **deps:** [security] bump node-fetch from 2.6.0 to 2.6.1 ([2485df2](https://github.com/JuroOravec/instance-manager/commit/2485df2e6e4f6a2b58f586b7fb85ca7f0d726377))
+
 ## [1.1.5](https://github.com/JuroOravec/instance-manager/compare/v1.1.4...v1.1.5) (2020-05-12)
 
 
