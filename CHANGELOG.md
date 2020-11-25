@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/JuroOravec/instance-manager/compare/v1.1.5...v1.1.6) (2020-11-25)
+
+
+### Bug Fixes
+
+* **deps:** [security] bump highlight.js from 10.0.1 to 10.4.0 ([e366938](https://github.com/JuroOravec/instance-manager/commit/e36693851a393e84e937af5a7077bb9da6d9c032))
+
 ## [1.1.5](https://github.com/JuroOravec/instance-manager/compare/v1.1.4...v1.1.5) (2020-05-12)
 
 
