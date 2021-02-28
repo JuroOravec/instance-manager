@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/JuroOravec/instance-manager/compare/v1.1.5...v1.1.6) (2020-10-18)
+
+
+### Bug Fixes
+
+* **deps:** [security] bump npm-user-validate from 1.0.0 to 1.0.1 ([70c6a3e](https://github.com/JuroOravec/instance-manager/commit/70c6a3eaabc99d8eda6f228eea06b7fe542f2f76))
+
 ## [1.1.5](https://github.com/JuroOravec/instance-manager/compare/v1.1.4...v1.1.5) (2020-05-12)
 
 
