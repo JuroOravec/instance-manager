@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/JuroOravec/instance-manager/compare/v1.1.5...v1.1.6) (2020-09-03)
+
+
+### Bug Fixes
+
+* **deps:** [security] bump bl from 4.0.2 to 4.0.3 ([eee1a0a](https://github.com/JuroOravec/instance-manager/commit/eee1a0aca47dcb736192f1b8e3ff8c461bffcb3f))
+
 ## [1.1.5](https://github.com/JuroOravec/instance-manager/compare/v1.1.4...v1.1.5) (2020-05-12)
 
 
